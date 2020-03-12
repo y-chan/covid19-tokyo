@@ -77,9 +77,7 @@
             />
           </div>
           <div class="TelLink">
-            <a href="tel:0570550571"
-              ><img src="/flow/sp/sp_flow_tel_01@2x.png" alt="0570-550571"
-            /></a>
+            <a href="tel:0570550571"><img src="/flow/sp/sp_flow_tel_01@2x.png" alt="0570-550571"/></a>
           </div>
           <div class="mt-4">
             <a v-scroll-to="'#consult'" href="#consult">
@@ -168,7 +166,7 @@
           <div id="pcr" class="mx-2 mb-5">
             <img
               src="/flow/sp/sp_flow_06_02@2x.png"
-              alt="PCR検査 東京都健康安全研究センター等"
+              alt="PCR検査 大阪府健康安全研究センター等"
             />
           </div>
           <div class="Col2Btn">
@@ -205,7 +203,7 @@
         rel="noopener"
         class="Flow-Card-Button"
       >
-        詳細を見る(東京都福祉保健局)
+        詳細を見る(大阪府福祉保健局)
         <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
           mdi-open-in-new
         </v-icon>

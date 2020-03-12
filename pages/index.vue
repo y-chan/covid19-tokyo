@@ -84,7 +84,7 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <metro-bar-chart
-          title="都営地下鉄の利用者数の推移"
+          title="府営地下鉄の利用者数の推移"
           :title-id="'predicted-number-of-toei-subway-passengers'"
           :chart-id="'metro-bar-chart'"
           :chart-data="metroGraph"
@@ -148,7 +148,7 @@ export default {
     const contactsGraph = formatGraph(Data.contacts.data)
     // 帰国者・接触者電話相談センター相談件数
     const querentsGraph = formatGraph(Data.querents.data)
-    // 都営地下鉄の利用者数の推移
+    // 府営地下鉄の利用者数の推移
     const metroGraph = MetroData
     // 検査実施日別状況
     const inspectionsGraph = [
@@ -156,7 +156,7 @@ export default {
       Data.inspections_summary.data['その他']
     ]
     const inspectionsItems = [
-      '都内発生（疑い例・接触者調査）',
+      '府内発生（疑い例・接触者調査）',
       'その他（チャーター便・クルーズ船）'
     ]
     const inspectionsLabels = Data.inspections_summary.labels
@@ -191,7 +191,7 @@ export default {
       sumInfoOfPatients,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: '都内の最新感染動向',
+        title: '府内の最新感染動向',
         date: Data.lastUpdate
       },
       newsItems: News.newsItems,
@@ -253,7 +253,7 @@ export default {
   },
   head() {
     return {
-      title: '都内の最新感染動向'
+      title: '府内の最新感染動向'
     }
   }
 }
