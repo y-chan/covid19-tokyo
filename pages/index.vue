@@ -82,25 +82,6 @@
           :url="''"
         />
       </v-col>
-      <v-col cols="12" md="6" class="DataCard">
-        <metro-bar-chart
-          title="府営地下鉄の利用者数の推移"
-          :title-id="'predicted-number-of-toei-subway-passengers'"
-          :chart-id="'metro-bar-chart'"
-          :chart-data="metroGraph"
-          :chart-option="metroGraphOption"
-          :date="metroGraph.date"
-        />
-      </v-col>
-      <v-col cols="12" md="6" class="DataCard">
-        <agency-bar-chart
-          title="入庁舎数の推移"
-          :title-id="'agency'"
-          :chart-id="'agency'"
-          :url="''"
-          :unit="'人'"
-        />
-      </v-col>
     </v-row>
   </div>
 </template>
