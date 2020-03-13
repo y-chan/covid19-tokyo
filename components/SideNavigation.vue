@@ -73,7 +73,7 @@
           >
             Creative Commons Attribution 4.0 International License </a
           ><br />
-          2020 Tokyo Metropolitan Government
+          2020 Osaka Metropolitan Government
         </small>
       </div>
     </div>
@@ -88,7 +88,7 @@
     "Tokyo": "大阪府",
     "COVID-19": "新型コロナウイルス感染症",
     "Measures site": "対策サイト",
-    "Tokyo Metropolitan Government": "おおsカフ",
+    "Tokyo Metropolitan Government": "大阪府",
     "Tokyo COVID-19 Task Force": "新型コロナウイルス感染症対策本部",
     "The latest updates": "府内の最新感染動向",
     "If you have any symptoms": "新型コロナウイルス感染症が心配なときに",
@@ -128,39 +128,38 @@ export default {
         {
           icon: 'covid',
           title: this.$t('If you have any symptoms'),
-          link: '/flow',
+          link: 'http://www.pref.osaka.lg.jp/iryo/osakakansensho/corona-denwa.html',
           divider: true
         },
         {
           icon: 'parent',
           title: this.$t('for Families with children'),
-          link: '/parent'
+          link: 'http://www.pref.osaka.lg.jp/kyoikusomu/homepage/kyoiku_kannsensho.html'
         },
         {
           icon: 'mdi-account-multiple',
           title: this.$t('for Citizens'),
-          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
+          link: 'http://www.pref.osaka.lg.jp/iryo/osakakansensho/corona.html'
         },
         {
           icon: 'mdi-domain',
           title: this.$t('for Enterprises and Employees'),
-          link: '/worker',
+          link: 'https://jsite.mhlw.go.jp/osaka-roudoukyoku/20200213.html',
           divider: true
         },
         {
           title: this.$t('Official statements from Task Force'),
-          link:
-            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
+          link: 'http://www.pref.osaka.lg.jp/iryo/2019ncov/index.html'
         },
         {
           title: this.$t('Cancelled public events'),
           link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event02.html'
+            'http://www.pref.osaka.lg.jp/kikaku/corona_canceledevent/index.html'
         },
         {
           title: this.$t('Message from Governor Koike'),
           link:
-            'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
+            'http://www.pref.osaka.lg.jp/iryo/osakakansensho/corona_message.html'
         },
         {
           title: this.$t('About us'),
@@ -168,7 +167,7 @@ export default {
         },
         {
           title: this.$t('Government official website'),
-          link: 'https://www.metro.tokyo.lg.jp/',
+          link: 'http://www.pref.osaka.lg.jp/',
           divider: true
         }
       ]
