@@ -8,9 +8,8 @@
     <whats-new class="mb-4" :items="newsItems" />
     <static-info
       class="mb-4"
-      :url="'/flow'"
+      :url="'http://www.pref.osaka.lg.jp/iryo/osakakansensho/corona-denwa.html'"
       :text="'自分や家族の症状に不安や心配があればまずは電話相談をどうぞ'"
-      :btn-text="'相談の手順を見る'"
     />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
@@ -89,8 +88,6 @@
 <script>
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
-import MetroBarChart from '@/components/MetroBarChart.vue'
-import AgencyBarChart from '@/components/AgencyBarChart.vue'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
@@ -108,8 +105,6 @@ export default {
   components: {
     PageHeader,
     TimeBarChart,
-    MetroBarChart,
-    AgencyBarChart,
     TimeStackedBarChart,
     WhatsNew,
     StaticInfo,
