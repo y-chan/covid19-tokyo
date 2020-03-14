@@ -134,7 +134,7 @@ export default {
         },
         {
           title: this.$t('Government official website'),
-          link: 'https://www.pref.nara.jp/',
+          link: 'http://www.pref.nara.jp/',
           divider: true
         },
         {
