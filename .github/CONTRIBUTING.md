@@ -37,7 +37,7 @@
 
 ## 開発に関する情報
 * 開発サイト https://dev-covid19-osaka.netlify.com/
-* ステージングサイト https://stg-covid19-tokyo.netlify.com/
+* ステージングサイト ★大阪は今のところありません★
 * 本番サイト https://covid19-osaka.info/
 * [デザイン](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
 
