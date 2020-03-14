@@ -128,13 +128,15 @@ export default {
         {
           icon: 'covid',
           title: this.$t('If you have any symptoms'),
-          link: 'http://www.pref.osaka.lg.jp/iryo/osakakansensho/corona-denwa.html',
+          link:
+            'http://www.pref.osaka.lg.jp/iryo/osakakansensho/corona-denwa.html',
           divider: true
         },
         {
           icon: 'parent',
           title: this.$t('for Families with children'),
-          link: 'http://www.pref.osaka.lg.jp/kyoikusomu/homepage/kyoiku_kannsensho.html'
+          link:
+            'http://www.pref.osaka.lg.jp/kyoikusomu/homepage/kyoiku_kannsensho.html'
         },
         {
           icon: 'mdi-account-multiple',
