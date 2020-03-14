@@ -4,7 +4,7 @@
       当サイトについて
     </h2>
     <TextCard>
-      当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、愛知県内外の有志が開設したものです。<br />
+      当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、奈良県内外の有志が開設したものです。<br />
       <br />
       複製・改変が許されたオープンソースライセンスで公開されている、<a target="_blank" href="https://stopcovid19.metro.tokyo.lg.jp/">東京都公式新型コロナウイルス対策サイト</a>の<a target="_blank" href="https://github.com/tokyo-metropolitan-gov/covid19" rel="noopener">仕組み</a>を利用しています。<br />
       <br />
@@ -88,15 +88,15 @@
     </TextCard>
     <TextCard title="ソースコードについて">
       本サイトのソースコードはMITライセンスで公開されており、誰でも自由に利用することができます。詳しくは、<a
-        href="https://github.com/code4nagoya/covid19"
+        href="https://github.com/code4nara/covid19"
         target="_blank"
         rel="noopener"
         >GitHub リポジトリ</a
       >をご確認ください。
     </TextCard>
     <TextCard title="お問い合わせ先">
-      Code for Nagoya<br />
-      <a href="mailto:info@code4.nagoya">info@code4.nagoya</a>
+      Code for Nara<br />
+      <a href="mailto:info@code4nara.org">info@code4nara.org</a>
     </TextCard>
   </div>
 </template>
