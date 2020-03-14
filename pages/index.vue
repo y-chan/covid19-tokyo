@@ -29,9 +29,6 @@
           :chart-data="patientsGraph"
           :date="Data.patients.date"
           :unit="'人'"
-          :url="
-            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
-          "
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -42,11 +39,19 @@
           :chart-option="{}"
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
-          :url="
-            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
-          "
         />
       </v-col>
+      <v-col cols="12" md="6" class="DataCard">
+        <time-bar-chart
+          title="検査実施数"
+          :title-id="'number-of-tested'"
+          :chart-id="'time-bar-chart-inspections'"
+          :chart-data="inspectionsGraph"
+          :date="Data.inspections_summary.date"
+          :unit="'件'"
+        />
+      </v-col>
+      <!--
       <v-col cols="12" md="6" class="DataCard">
         <time-stacked-bar-chart
           title="検査実施数"
@@ -59,28 +64,7 @@
           :unit="'件'"
         />
       </v-col>
-      <v-col cols="12" md="6" class="DataCard">
-        <time-bar-chart
-          title="新型コロナコールセンター相談件数"
-          :title-id="'number-of-reports-to-covid19-telephone-advisory-center'"
-          :chart-id="'time-bar-chart-contacts'"
-          :chart-data="contactsGraph"
-          :date="Data.contacts.date"
-          :unit="'件'"
-          :url="''"
-        />
-      </v-col>
-      <v-col cols="12" md="6" class="DataCard">
-        <time-bar-chart
-          title="新型コロナ受診相談窓口相談件数"
-          :title-id="'number-of-reports-to-covid19-consultation-desk'"
-          :chart-id="'time-bar-chart-querents'"
-          :chart-data="querentsGraph"
-          :date="Data.querents.date"
-          :unit="'件'"
-          :url="''"
-        />
-      </v-col>
+      -->
     </v-row>
   </div>
 </template>
@@ -88,7 +72,6 @@
 <script>
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
-import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
@@ -105,7 +88,6 @@ export default {
   components: {
     PageHeader,
     TimeBarChart,
-    TimeStackedBarChart,
     WhatsNew,
     StaticInfo,
     DataTable,
@@ -126,15 +108,14 @@ export default {
     const querentsGraph = formatGraph(Data.querents.data)
     // 府営地下鉄の利用者数の推移
     const metroGraph = MetroData
+    // 検査実施状況
+    const inspectionsGraph = formatGraph(Data.inspections_summary.data)
     // 検査実施日別状況
-    const inspectionsGraph = [
-      Data.inspections_summary.data['都内'],
-      Data.inspections_summary.data['その他']
-    ]
-    const inspectionsItems = [
-      '府内発生（疑い例・接触者調査）',
-      'その他（チャーター便・クルーズ船）'
-    ]
+    // const inspectionsGraph = [
+    //   Data.inspections_summary.data['府内'],
+    //   Data.inspections_summary.data['その他']
+    // ]
+    const inspectionsItems = ['府内発生', 'その他']
     const inspectionsLabels = Data.inspections_summary.labels
     // 死亡者数
     // #MEMO: 今後使う可能性あるので一時コメントアウト
