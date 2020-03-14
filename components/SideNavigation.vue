@@ -76,7 +76,7 @@
     "for Families with children": "お子様をお持ちの皆様へ",
     "for Citizens": "県民の皆様へ",
     "for Enterprises and Employees": "企業の皆様・はたらく皆様へ",
-    "Official statements from Task Force": "奈良新型コロナウイルス感染症対策本部会議報",
+    "Official statements from Task Force": "奈良県総務部知事公室防災統括室",
     "Government official website": "奈良県公式ホームページ",
     "About us": "当サイトについて",
     "Other local Government": "他自治体の対策サイト"
@@ -115,7 +115,7 @@ export default {
           icon: 'mdi-account-multiple',
           title: this.$t('for Citizens'),
           link:
-            'https://www.pref.aichi.jp/soshiki/kenkotaisaku/novel-coronavirus.html'
+            'http://www.pref.nara.jp/#000'
         },
         {
           icon: 'mdi-domain',
@@ -126,7 +126,7 @@ export default {
         {
           title: this.$t('Official statements from Task Force'),
           link:
-	    'https://www.pref.nara.jp/item/222948.htm'
+	    'http://www.pref.nara.jp/item/222948.htm'
         },
         {
           title: this.$t('About us'),
