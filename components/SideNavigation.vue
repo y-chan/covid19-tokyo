@@ -10,7 +10,7 @@
       </v-icon>
       <nuxt-link to="/" class="SideNavigation-HeadingLink">
         <div class="SideNavigation-Logo">
-          <img src="/logo.svg" :alt="$t('Tokyo')" />
+          <img src="/logo.png" :alt="$t('Tokyo')" />
         </div>
         <h1 class="SideNavigation-Heading">
           {{ $t('COVID-19') }}<br />{{ $t('Measures site') }}
@@ -38,32 +38,6 @@
         </v-container>
       </v-list>
       <div class="SideNavigation-Footer">
-        <div class="SideNavigation-SocialLinkContainer">
-          <a
-            href="https://line.me/R/ti/p/%40822sysfc"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/line.png" alt="LINE" />
-          </a>
-          <a
-            href="https://twitter.com/tokyo_bousai"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/twitter.png" alt="Twitter" />
-          </a>
-          <a
-            href="https://www.facebook.com/tochokoho"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/facebook.png" alt="Facebook" />
-          </a>
-          <a href="https://github.com/tokyo-metropolitan-gov/covid19">
-            <img src="/github.png" alt="GitHub" />
-          </a>
-        </div>
         <small class="SideNavigation-Copyright" lang="en">
           Content on This Site is Licensed Under a
           <a
@@ -73,7 +47,7 @@
           >
             Creative Commons Attribution 4.0 International License </a
           ><br />
-          2020 Osaka Metropolitan Government
+          2020 Osaka Prefectural Government × CODE for OSAKA
         </small>
       </div>
     </div>
@@ -99,7 +73,13 @@
     "Cancelled public events": "大阪府主催等 中止又は延期するイベント等",
     "Government official website": "大阪府公式ホームページ",
     "Message from Governor Koike": "知事からのメッセージ",
-    "About us": "当サイトについて"
+    "About us": "当サイトについて",
+    "About covid19": "新型コロナウイルス感染症について",
+    "Related info": "新型コロナウイルス感染症関連情報",
+    "Task Force": "大阪府新型コロナウイルス対策本部",
+    "Message from Governor": "知事からのメッセージ",
+    "Official Twitter": "大阪府公式Twitter",
+    "Official Facebook": "大阪府公式Facebook"
   }
 }
 </i18n>
@@ -127,39 +107,22 @@ export default {
         },
         {
           icon: 'covid',
-          title: this.$t('If you have any symptoms'),
-          link:
-            'http://www.pref.osaka.lg.jp/iryo/osakakansensho/corona-denwa.html',
-          divider: true
-        },
-        {
-          icon: 'parent',
-          title: this.$t('for Families with children'),
-          link:
-            'http://www.pref.osaka.lg.jp/kyoikusomu/homepage/kyoiku_kannsensho.html'
-        },
-        {
-          icon: 'mdi-account-multiple',
-          title: this.$t('for Citizens'),
+          title: this.$t('About covid19'),
           link: 'http://www.pref.osaka.lg.jp/iryo/osakakansensho/corona.html'
         },
         {
           icon: 'mdi-domain',
-          title: this.$t('for Enterprises and Employees'),
-          link: 'https://jsite.mhlw.go.jp/osaka-roudoukyoku/20200213.html',
+          title: this.$t('Related info'),
+          link: 'http://www.pref.osaka.lg.jp/iryo/osakakansensho/corona.html'
+        },
+        {
+          icon: 'mdi-account-multiple',
+          title: this.$t('Task Force'),
+          link: 'http://www.pref.osaka.lg.jp/iryo/2019ncov/index.html',
           divider: true
         },
         {
-          title: this.$t('Official statements from Task Force'),
-          link: 'http://www.pref.osaka.lg.jp/iryo/2019ncov/index.html'
-        },
-        {
-          title: this.$t('Cancelled public events'),
-          link:
-            'http://www.pref.osaka.lg.jp/kikaku/corona_canceledevent/index.html'
-        },
-        {
-          title: this.$t('Message from Governor Koike'),
+          title: this.$t('Message from Governor'),
           link:
             'http://www.pref.osaka.lg.jp/iryo/osakakansensho/corona_message.html'
         },
@@ -170,6 +133,15 @@ export default {
         {
           title: this.$t('Government official website'),
           link: 'http://www.pref.osaka.lg.jp/',
+          divider: true
+        },
+        {
+          title: this.$t('Official Twitter'),
+          link: 'https://twitter.com/osakaprefPR/'
+        },
+        {
+          title: this.$t('Official Facebook'),
+          link: 'https://www.facebook.com/osaka.pref',
           divider: true
         }
       ]
