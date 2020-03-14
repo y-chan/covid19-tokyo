@@ -46,7 +46,7 @@ const config: Configuration = {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://stopcovid19.code4.nagoya/ogp.png'
+        content: 'https://stopcovid19.code4nara.org/ogp.png'
       },
       {
         hid: 'twitter:card',
@@ -56,12 +56,12 @@ const config: Configuration = {
       {
         hid: 'twitter:site',
         name: 'twitter:site',
-        content: '@code4nagoya'
+        content: '@code4nara'
       },
       {
         hid: 'twitter:creator',
         name: 'twitter:creator',
-        content: '@code4nagoya'
+        content: '@code4nara'
       },
       {
         hid: 'twitter:image',
