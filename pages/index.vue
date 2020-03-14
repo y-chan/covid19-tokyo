@@ -27,7 +27,7 @@
           :date="Data.patients.date"
           :unit="'人'"
           :url="
-            'https://www.pref.aichi.jp/soshiki/kenkotaisaku/novel-coronavirus.html'
+            'http://www.pref.nara.jp/1652.htm'
           "
         />
       </v-col>
@@ -41,7 +41,7 @@
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
           :url="
-            'https://www.pref.aichi.jp/soshiki/kenkotaisaku/novel-coronavirus.html'
+            'http://www.pref.nara.jp/1652.htm'
           "
         />
       </v-col>
@@ -78,16 +78,6 @@
           :date="Data.querents.date"
           :unit="'件'"
           :url="''"
-        />
-      </v-col>
-      <v-col cols="12" md="6" class="DataCard">
-        <metro-bar-chart
-          title="名古屋市営地下鉄の利用者数の推移"
-          :title-id="'predicted-number-of-nagoya-subway-passengers'"
-          :chart-id="'metro-bar-chart'"
-          :chart-data="metroGraph"
-          :chart-option="metroGraphOption"
-          :date="metroGraph.date"
         />
       </v-col>
       -->
@@ -179,7 +169,7 @@ export default {
       sumInfoOfPatients,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: '愛知県内の最新感染動向',
+        title: '奈良県内の最新感染動向',
         date: Data.lastUpdate
       },
       newsItems: News.newsItems,

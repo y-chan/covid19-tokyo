@@ -10,7 +10,7 @@
       </v-icon>
       <nuxt-link to="/" class="SideNavigation-HeadingLink">
         <div class="SideNavigation-Logo">
-          <img src="/logo.svg" :alt="$t('Tokyo')" />
+          <img src="/logo.png" :alt="$t('Nara')" />
         </div>
         <h1 class="SideNavigation-Heading">
           {{ $t('COVID-19') }}<br />{{ $t('Measures site') }}
@@ -40,21 +40,13 @@
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a
-            href="http://line.naver.jp/ti/p/%40aichipref"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/line.png" alt="LINE" />
-          </a>
-          <a
-            href="https://twitter.com/pref_aichi"
+            href="https://twitter.com/pref_nara"
             target="_blank"
             rel="noopener"
           >
             <img src="/twitter.png" alt="Twitter" />
           </a>
-          <a
-            href="https://www.facebook.com/aichikoho"
+          <a href="https://www.facebook.com/office.pref.nara/"
             target="_blank"
             rel="noopener"
           >
@@ -75,19 +67,17 @@
   "ja": {
     "Navi Open": "サイドメニュー項目を開く",
     "Navi Close": "サイドメニュー項目を閉じる",
-    "Aichi": "愛知県",
+    "Nara": "奈良県",
     "COVID-19": "新型コロナウイルス感染症",
     "Measures site": "対策サイト",
-    "Aichi Prefecture Government": "愛知県",
+    "Nara Prefecture Government": "奈良県",
     "Tokyo COVID-19 Task Force": "新型コロナウイルス感染症対策本部",
     "The latest updates": "県内の最新感染動向",
     "for Families with children": "お子様をお持ちの皆様へ",
     "for Citizens": "県民の皆様へ",
     "for Enterprises and Employees": "企業の皆様・はたらく皆様へ",
-    "Official statements from Task Force": "愛知県新型コロナウイルス感染症対策本部会議報",
-    "Cancelled public events": "愛知労働局主催等 中止又は延期するイベント等",
-    "Government official website": "愛知県公式ホームページ",
-    "Message from Governor Omura": "知事からのメッセージ",
+    "Official statements from Task Force": "奈良県総務部知事公室防災統括室",
+    "Government official website": "奈良県公式ホームページ",
     "About us": "当サイトについて",
     "Other local Government": "他自治体の対策サイト"
   }
@@ -125,7 +115,7 @@ export default {
           icon: 'mdi-account-multiple',
           title: this.$t('for Citizens'),
           link:
-            'https://www.pref.aichi.jp/soshiki/kenkotaisaku/novel-coronavirus.html'
+            'http://www.pref.nara.jp/#000'
         },
         {
           icon: 'mdi-domain',
@@ -136,16 +126,7 @@ export default {
         {
           title: this.$t('Official statements from Task Force'),
           link:
-            'https://www.pref.aichi.jp/soshiki/kenkotaisaku/novel-coronavirus-taisakuhonbu.html'
-        },
-        {
-          title: this.$t('Cancelled public events'),
-          link:
-            'https://jsite.mhlw.go.jp/aichi-roudoukyoku/news_topics/2019_covid-19_event.html'
-        },
-        {
-          title: this.$t('Message from Governor Omura'),
-          link: 'https://www.pref.aichi.jp/chiji/message/index00.html'
+	    'http://www.pref.nara.jp/item/222948.htm'
         },
         {
           title: this.$t('About us'),
@@ -153,7 +134,7 @@ export default {
         },
         {
           title: this.$t('Government official website'),
-          link: 'https://www.pref.aichi.jp/',
+          link: 'http://www.pref.nara.jp/',
           divider: true
         },
         {
@@ -258,6 +239,7 @@ export default {
 .open {
   @include lessThan($small) {
     position: fixed;
+    overflow: auto;
     top: 0;
     bottom: 0;
     left: 0;

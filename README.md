@@ -1,8 +1,4 @@
-# 愛知県 新型コロナウイルス感染症対策サイト
-
-![](https://github.com/code4nagoya/covid19/workflows/production%20deploy/badge.svg)
-
-[![愛知県 新型コロナウイルス感染症対策サイト](https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/89384411_3894244213920910_6080693635433627648_o.jpg?_nc_cat=101&_nc_sid=ca434c&_nc_ohc=3nng60TwA4gAX_zj-mW&_nc_ht=scontent-lax3-1.xx&oh=df8364ef052034ec9dfcc629da21490b&oe=5EA5E01E)](http://stopcovid19.code4.nagoya/)
+# 奈良県 新型コロナウイルス感染症対策サイト（非公式）
 
 ### 日本語
 
@@ -41,6 +37,7 @@ $ docker-compose up --build
 
 ### 開発・本番環境への反映
 
-`master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト http://stopcovid19.code4.nagoya/ が更新されます。
+`master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされ、本番サイト http://stopcovid19.code4nara.org/ を更新するように準備中です。
 
-`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://dev-covid19-aichi.netlify.com/ が更新されます。
+`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://upbeat-volhard-740574.netlify.com/ が更新されます。
+

@@ -11,7 +11,7 @@ const config: Configuration = {
     htmlAttrs: {
       prefix: 'og: http://ogp.me/ns#'
     },
-    titleTemplate: '%s | 愛知県 新型コロナウイルス感染症対策サイト',
+    titleTemplate: '%s | 奈良県 新型コロナウイルス感染症対策サイト（非公式）',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -19,34 +19,34 @@ const config: Configuration = {
         hid: 'description',
         name: 'description',
         content:
-          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、愛知県が開設したものです。'
+          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、奈良県の有志で開設したものです。'
       },
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: '愛知県 新型コロナウイルス感染症対策サイト'
+        content: '奈良県 新型コロナウイルス感染症対策サイト（非公式）'
       },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://stopcovid19.code4.nagoya'
+        content: 'https://stopcovid19.code4nara.org'
       },
       {
         hid: 'og:title',
         property: 'og:title',
-        content: '愛知県 新型コロナウイルス感染症対策サイト'
+        content: '奈良県 新型コロナウイルス感染症対策サイト（非公式）'
       },
       {
         hid: 'og:description',
         property: 'og:description',
         content:
-          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、愛知県が開設したものです。'
+          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、奈良県の有志が開設したものです。'
       },
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://stopcovid19.code4.nagoya/ogp.png'
+        content: 'https://stopcovid19.code4nara.org/ogp.png'
       },
       {
         hid: 'twitter:card',
@@ -56,17 +56,17 @@ const config: Configuration = {
       {
         hid: 'twitter:site',
         name: 'twitter:site',
-        content: '@code4nagoya'
+        content: '@code4nara'
       },
       {
         hid: 'twitter:creator',
         name: 'twitter:creator',
-        content: '@code4nagoya'
+        content: '@code4nara'
       },
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: 'https://stopcovid19.code4.nagoya/ogp.png'
+        content: 'https://stopcovid19.code4nara.org/ogp.png'
       }
     ],
     link: [
@@ -150,7 +150,7 @@ const config: Configuration = {
     }
   },
   googleAnalytics: {
-    id: 'UA-160333748-1'
+    id: 'UA-160644417-1'
   },
   build: {
     postcss: {
@@ -173,7 +173,7 @@ const config: Configuration = {
     hardSource: process.env.NODE_ENV === 'development'
   },
   manifest: {
-    name: '愛知県 新型コロナウイルス感染症対策サイト',
+    name: '奈良県 新型コロナウイルス感染症対策サイト（非公式）',
     theme_color: '#A83945',
     background_color: '#ffffff',
     display: 'standalone',

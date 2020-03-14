@@ -18,22 +18,20 @@ export default {
     return {
       items: [
         {
-          title: '新型コロナウイルス感染症対策緊急つなぎ資金',
-          link: 'https://www.pref.aichi.jp/soshiki/kinyu/kinyu0304.html',
+          title: '新型肺炎の影響を受けた中小・小規模事業者への金融支援について',
+	  link: 'http://www.pref.nara.jp/item/222881.htm',
           body:
-            '新型コロナウイルス感染症により事業活動に影響を受けている中小企業等を対象とした緊急つなぎ資金制度です。融資限度額は5千万円で、信用保証料を愛知県が全額補助します。'
+            '新型肺炎(新型コロナウイルス)の影響を受けた中小企業・小規模事業者を県制度融資「経営環境変化・災害対策資金」の対象に追加します。'
         },
         {
-          title:
-            '新型コロナウイルス感染症対策として「テレワーク」の活用をご検討ください！',
-          link: 'https://www.pref.aichi.jp/soshiki/rodofukushi/telework.html',
+          title: '新型コロナウイルス感染症により影響を受けている中小企業・小規模事業者への金融支援について(セーフティネット保証4号の指定)',
+          link: 'http://www.pref.nara.jp/item/224077.htm#moduleid17510',
           body:
-            '国内での新型コロナウイルス感染拡大を受け、県内企業の皆様におかれましては、在宅勤務を可能とする「テレワーク」や時差出勤の導入をご検討ください。'
+            '新型コロナウイルス感染症により影響を受けている中小企業・小規模事業者への資金繰り支援措置として、国が奈良県に対しセーフティネット保証4号(※)を発動しました。これに伴い県制度融資「セーフティネット対策資金(4号)」をご利用いただけます。'
         },
         {
-          title: '特別労働相談窓口',
-          link:
-            'https://jsite.mhlw.go.jp/aichi-roudoukyoku/news_topics/2019_covid-19soudan.html?fbclid=IwAR01RhExhMRTZ0CZTdwvfDEWVf_qABG8U2-QCnkw-77u9L2SiqL3SPp3aGk',
+          title: '新型コロナウイルス感染症対策　経営相談窓口（奈良県）',
+          link: 'http://www.pref.nara.jp/#007',
           body:
             '新型コロナウイルス感染症に関連して、労働問題で困ったことがあれば、ご相談ください。'
         }
