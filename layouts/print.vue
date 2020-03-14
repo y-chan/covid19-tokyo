@@ -32,7 +32,7 @@
                 ※最新の情報はWebページをご覧ください
               </p>
               <p class="PrintMeta-Link">
-                https://dev-covid19-osaka.netlify.com/
+                https://covid19-osaka.info/
               </p>
             </v-card>
           </v-card>
@@ -77,7 +77,7 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: `https://dev-covid19-osaka.netlify.com${this.$route.path}`
+          href: `https://covid19-osaka.info${this.$route.path}`
         }
       ]
     }

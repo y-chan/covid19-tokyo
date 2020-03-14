@@ -30,7 +30,7 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://dev-covid19-osaka.netlify.com/'
+        content: 'https://covid19-osaka.info/'
       },
       {
         hid: 'og:title',
@@ -46,7 +46,7 @@ const config: Configuration = {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://dev-covid19-osaka.netlify.com/ogp.png'
+        content: 'https://covid19-osaka.info/ogp.png'
       },
       {
         hid: 'twitter:card',
@@ -66,7 +66,7 @@ const config: Configuration = {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: 'https://dev-covid19-osaka.netlify.com/ogp.png'
+        content: 'https://covid19-osaka.info/ogp.png'
       }
     ],
     link: [
