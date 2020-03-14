@@ -32,7 +32,7 @@
                 ※最新の情報はWebページをご覧ください
               </p>
               <p class="PrintMeta-Link">
-                https://stopcovid19.code4.nagoya/
+                https://stopcovid19.code4nara.org/
               </p>
             </v-card>
           </v-card>
@@ -77,7 +77,7 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: `https://stopcovid19.code4.nagoya${this.$route.path}`
+          href: `https://stopcovid19.code4nara.org${this.$route.path}`
         }
       ]
     }

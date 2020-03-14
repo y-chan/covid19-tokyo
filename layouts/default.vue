@@ -61,7 +61,7 @@ export default Vue.extend({
       link: [
         {
           rel: 'canonical',
-          href: `https://stopcovid19.code4.nagoya${this.$route.path}`
+          href: `https://stopcovid19.code4nara.org${this.$route.path}`
         }
       ]
     }

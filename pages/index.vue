@@ -80,16 +80,6 @@
           :url="''"
         />
       </v-col>
-      <v-col cols="12" md="6" class="DataCard">
-        <metro-bar-chart
-          title="名古屋市営地下鉄の利用者数の推移"
-          :title-id="'predicted-number-of-nagoya-subway-passengers'"
-          :chart-id="'metro-bar-chart'"
-          :chart-data="metroGraph"
-          :chart-option="metroGraphOption"
-          :date="metroGraph.date"
-        />
-      </v-col>
       -->
     </v-row>
   </div>

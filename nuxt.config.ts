@@ -30,7 +30,7 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://stopcovid19.code4.nagoya'
+        content: 'https://stopcovid19.code4nara.org'
       },
       {
         hid: 'og:title',
@@ -66,7 +66,7 @@ const config: Configuration = {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: 'https://stopcovid19.code4.nagoya/ogp.png'
+        content: 'https://stopcovid19.code4nara.org/ogp.png'
       }
     ],
     link: [
