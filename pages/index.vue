@@ -27,7 +27,7 @@
           :date="Data.patients.date"
           :unit="'人'"
           :url="
-            'https://www.pref.aichi.jp/soshiki/kenkotaisaku/novel-coronavirus.html'
+            'http://www.pref.nara.jp/1652.htm'
           "
         />
       </v-col>
@@ -41,7 +41,7 @@
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
           :url="
-            'https://www.pref.aichi.jp/soshiki/kenkotaisaku/novel-coronavirus.html'
+            'http://www.pref.nara.jp/1652.htm'
           "
         />
       </v-col>
