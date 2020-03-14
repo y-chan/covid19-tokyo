@@ -60,8 +60,8 @@ $ docker-compose run --rm app yarn install
 
 ### ステージング・本番環境への反映
 
-`master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト ★未定★ が更新されます。
+`master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://covid19-osaka.info/ が更新されます。
 
-`staging` ブランチがアップデートされると、自動的に `gh-pages` ブランチにHTML類がbuildされます。そして、ステージングサイト ★未定★ が更新されます。
+`staging` ブランチは大阪では運用しません。developからmasterにプルリクを投げてください
 
 `development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://dev-covid19-osaka.netlify.com/ が更新されます。
