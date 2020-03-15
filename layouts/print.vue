@@ -2,7 +2,7 @@
   <v-app class="app-print">
     <div v-if="loading" class="loader">
       <img src="/logo.png" alt="大阪府" />
-      <scale-loader color="#00A040" />
+      <scale-loader color="#364c97" />
     </div>
     <v-container v-else>
       <v-row align="center" class="PrintMeta">
