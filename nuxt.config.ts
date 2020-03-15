@@ -71,7 +71,7 @@ const config: Configuration = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'nara-icon', href: '/nara.png' }
+      { rel: 'apple-touch-icon', href: '/nara-icon-precomposed.png' }
     ]
   },
   /*
