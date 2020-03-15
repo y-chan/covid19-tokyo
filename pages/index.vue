@@ -51,20 +51,6 @@
           :unit="'件'"
         />
       </v-col>
-      <!--
-      <v-col cols="12" md="6" class="DataCard">
-        <time-stacked-bar-chart
-          title="検査実施数"
-          :title-id="'number-of-tested'"
-          :chart-id="'time-stacked-bar-chart-inspections'"
-          :chart-data="inspectionsGraph"
-          :date="Data.inspections_summary.date"
-          :items="inspectionsItems"
-          :labels="inspectionsLabels"
-          :unit="'件'"
-        />
-      </v-col>
-      -->
     </v-row>
   </div>
 </template>
@@ -75,7 +61,6 @@ import TimeBarChart from '@/components/TimeBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
-import MetroData from '@/data/metro.json'
 import DataTable from '@/components/DataTable.vue'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
@@ -99,29 +84,8 @@ export default {
     const patientsGraph = formatGraph(Data.patients_summary.data)
     // 感染者数
     const patientsTable = formatTable(Data.patients.data)
-    // 退院者グラフ
-    const dischargesGraph = formatGraph(Data.discharges_summary.data)
-
-    // 相談件数
-    const contactsGraph = formatGraph(Data.contacts.data)
-    // 帰国者・接触者電話相談センター相談件数
-    const querentsGraph = formatGraph(Data.querents.data)
-    // 府営地下鉄の利用者数の推移
-    const metroGraph = MetroData
     // 検査実施状況
     const inspectionsGraph = formatGraph(Data.inspections_summary.data)
-    // 検査実施日別状況
-    // const inspectionsGraph = [
-    //   Data.inspections_summary.data['府内'],
-    //   Data.inspections_summary.data['その他']
-    // ]
-    const inspectionsItems = ['府内発生', 'その他']
-    const inspectionsLabels = Data.inspections_summary.labels
-    // 死亡者数
-    // #MEMO: 今後使う可能性あるので一時コメントアウト
-    // const fatalitiesTable = formatTable(
-    //   Data.patients.data.filter(patient => patient['備考'] === '死亡')
-    // )
     // 検査陽性者の状況
     const confirmedCases = formatConfirmedCases(Data.main_summary)
 
@@ -137,13 +101,7 @@ export default {
       Data,
       patientsTable,
       patientsGraph,
-      dischargesGraph,
-      contactsGraph,
-      querentsGraph,
-      metroGraph,
       inspectionsGraph,
-      inspectionsItems,
-      inspectionsLabels,
       confirmedCases,
       sumInfoOfPatients,
       headerItem: {
@@ -151,60 +109,7 @@ export default {
         title: '府内の最新感染動向',
         date: Data.lastUpdate
       },
-      newsItems: News.newsItems,
-      metroGraphOption: {
-        responsive: true,
-        legend: {
-          display: true
-        },
-        scales: {
-          xAxes: [
-            {
-              position: 'bottom',
-              stacked: false,
-              gridLines: {
-                display: true
-              },
-              ticks: {
-                fontSize: 10,
-                maxTicksLimit: 20,
-                fontColor: '#808080'
-              }
-            }
-          ],
-          yAxes: [
-            {
-              stacked: false,
-              gridLines: {
-                display: true
-              },
-              ticks: {
-                fontSize: 12,
-                maxTicksLimit: 10,
-                fontColor: '#808080',
-                callback(value) {
-                  return value.toFixed(2) + '%'
-                }
-              }
-            }
-          ]
-        },
-        tooltips: {
-          displayColors: false,
-          callbacks: {
-            title(tooltipItems, _) {
-              const label = tooltipItems[0].label
-              return `期間: ${label}`
-            },
-            label(tooltipItem, data) {
-              const currentData = data.datasets[tooltipItem.datasetIndex]
-              const percentage = `${currentData.data[tooltipItem.index]}%`
-
-              return `${metroGraph.base_period}の利用者数との相対値: ${percentage}`
-            }
-          }
-        }
-      }
+      newsItems: News.newsItems
     }
     return data
   },

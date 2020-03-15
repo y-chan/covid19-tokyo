@@ -4,13 +4,10 @@
 
 TODO: 本番サイトのURLが決まったらイカれた画像とリンクを配置する
 
-### 日本語 | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md)
-
 ## 貢献の仕方
 Issues にあるいろいろな修正にご協力いただけると嬉しいです。
 
 詳しくは[貢献の仕方](./.github/CONTRIBUTING.md)を御覧ください。
-
 
 ## 行動原則
 詳しくは[サイト構築にあたっての行動原則](./.github/CODE_OF_CONDUCT.md)を御覧ください。
@@ -26,6 +23,38 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 [Githubへのリンク](https://github.com/tokyo-metropolitan-gov/covid19)
 
 ## 開発者向け情報
+
+### data.jsonの説明
+* JSON形式のデータです
+* 今は手作業で修正しています
+
+#### patients
+* 感染者数
+* date：最終更新日
+* data -> リリース日：発表された日（最後の`T08:00:00.000Z`は固定）
+* data -> 曜日：他の行と同じでOK
+* data -> 居住地：市区町村まで
+* data -> 年代：〜〜代まで
+* data -> 性別：男性 or 女性
+* data -> 退院：退院してたら「○」、それ以外は「（空白）」
+* data -> date：上のリリース日と同じでOK（フォーマットは違うけど）
+
+#### patients_summary
+* 日毎の感染者数
+* date：最終更新日
+* data -> 日付：発表された日（最後の`T08:00:00.000Z`は固定）
+* data -> 小計：その日の感染者数（累計じゃないので注意）
+
+#### inspections_summary
+* 日毎の検査件数
+* date：最終更新日
+* date -> 日付：発表された日（最後の`T08:00:00.000Z`は固定）
+* date -> 小計：その日の検査件数（累計じゃないので注意）
+
+#### main_summary
+* 状況サマリー
+* http://www.pref.osaka.lg.jp/iryo/osakakansensho/corona.html
+* 上記ページの数字と合わせる（手作業）
 
 ### 環境構築の手順
 
