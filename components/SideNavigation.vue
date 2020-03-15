@@ -40,7 +40,7 @@
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a
-            href="https://twitter.com/pref_nara"
+            href="https://twitter.com/narakencyou"
             target="_blank"
             rel="noopener"
           >
