@@ -46,7 +46,8 @@
           >
             <img src="/twitter.png" alt="Twitter" />
           </a>
-          <a href="https://www.facebook.com/office.pref.nara/"
+          <a
+            href="https://www.facebook.com/office.pref.nara/"
             target="_blank"
             rel="noopener"
           >
@@ -79,6 +80,7 @@
     "Official statements from Task Force": "奈良県総務部知事公室防災統括室",
     "Government official website": "奈良県公式ホームページ",
     "About us": "当サイトについて",
+    "Municipalities": "各市町村の対策サイト",
     "Other local Government": "他自治体の対策サイト"
   }
 }
@@ -114,8 +116,7 @@ export default {
         {
           icon: 'mdi-account-multiple',
           title: this.$t('for Citizens'),
-          link:
-            'http://www.pref.nara.jp/#000'
+          link: 'http://www.pref.nara.jp/#000'
         },
         {
           icon: 'mdi-domain',
@@ -125,8 +126,7 @@ export default {
         },
         {
           title: this.$t('Official statements from Task Force'),
-          link:
-	    'http://www.pref.nara.jp/item/222948.htm'
+          link: 'http://www.pref.nara.jp/item/222948.htm'
         },
         {
           title: this.$t('About us'),
@@ -136,6 +136,10 @@ export default {
           title: this.$t('Government official website'),
           link: 'http://www.pref.nara.jp/',
           divider: true
+        },
+        {
+          title: this.$t('Municipalities'),
+          link: '/municipalities'
         },
         {
           title: this.$t('Other local Government'),
