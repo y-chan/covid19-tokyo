@@ -1,6 +1,11 @@
 {
   "newsItems": [
     {
+      "date": "2020/03/15",
+      "url": "http://www.pref.osaka.lg.jp/hodo/index.php?site=fumin&pageId=37735",
+      "text": "新型コロナウイルス感染症患者（103例目から106例目）の発生について"
+    },
+    {
       "date": "2020/03/14",
       "url": "http://www.pref.osaka.lg.jp/hodo/index.php?site=fumin&pageId=37733",
       "text": "新型コロナウイルス感染症患者（93例目から102例目）の発生について"
