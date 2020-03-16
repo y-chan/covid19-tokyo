@@ -2,36 +2,48 @@
   <div ref="wrapper" class="Wrapper">
     <div class="NaraMap">
       <div class="NaraMap-MunicipalitiesContainer">
-        <a
+        <component
+          :is="isChakraLike ? 'div' : 'a'"
           v-for="[k, v] in data"
           :key="k"
           :href="v.href"
           target="_blank"
           rel="noopener"
         >
-          <div
+          <component
+            :is="isChakraLike ? 'a' : 'div'"
+            :href="v.href"
+            target="_blank"
+            rel="noopener"
             :style="{
+              MsGridColumn: v.column,
+              MsGridRow: v.row,
               gridColumn: v.column,
               gridRow: v.row
             }"
           >
-            <ruby>
+            <div v-if="isChakraLike">
+              {{ v.name }}
+            </div>
+            <ruby v-else>
               {{ v.name }}
               <rp><br /></rp>
               <rt>{{ v.kana }}</rt>
               <rp><br /></rp>
             </ruby>
-          </div>
+          </component>
           <aside
             v-for="(aside, i) in v.asides || []"
             :key="i"
             :class="aside.directions"
             :style="{
+              MsGridColumn: aside.column,
+              MsGridRow: aside.row,
               gridColumn: aside.column,
               gridRow: aside.row
             }"
           />
-        </a>
+        </component>
       </div>
     </div>
   </div>
@@ -82,6 +94,14 @@ export default {
         })
     }
   },
+  computed: {
+    isChakraLike() {
+      return (
+        !!document.all ||
+        /Trident|Edge\/[12]\d\.\d+$/.test(navigator.appVersion)
+      )
+    }
+  },
   mounted(this: {
     readonly $refs: {
       readonly wrapper: HTMLElement
@@ -113,6 +133,12 @@ export default {
 
 <style lang="scss" scoped>
 @mixin border($width) {
+  > a:only-child,
+  > div:only-child {
+    border-width: $width;
+    margin: -$width;
+  }
+
   > aside {
     &.b {
       border-bottom-width: $width;
@@ -134,11 +160,6 @@ export default {
       margin-top: -$width;
     }
   }
-
-  > div:only-child {
-    border-width: $width;
-    margin: -$width;
-  }
 }
 
 .Wrapper {
@@ -155,7 +176,7 @@ export default {
 
 .NaraMap {
   box-sizing: border-box;
-  line-height: 0;
+  line-height: 1;
   position: relative;
   width: 24em;
 
@@ -163,9 +184,15 @@ export default {
     content: '';
     display: block;
     padding: 150% 0 0;
+
+    _:-ms-lang(x),
+    & {
+      padding: 100% 0 0;
+    }
   }
 
   &-MunicipalitiesContainer {
+    /* autoprefixer: ignore next */
     display: grid;
     grid: 1fr 6fr repeat(17, 2fr 6fr) 1fr/1fr 6fr repeat(11, 2fr 6fr) 1fr;
     height: 100%;
@@ -173,12 +200,32 @@ export default {
     top: 0;
     width: 100%;
 
-    > a {
+    _:-ms-lang(x),
+    & {
+      display: block;
+    }
+
+    > a,
+    > div {
       @include border(0.0625em);
 
+      color: $link;
       /* autoprefixer: ignore next */
       display: contents;
       font-size: 1em;
+
+      _:-ms-lang(x),
+      & {
+        bottom: 0;
+        display: grid;
+        -ms-grid-columns: 1fr 6fr [2fr 6fr](11) 1fr;
+        -ms-grid-rows: 1fr 6fr [2fr 6fr](17) 1fr;
+        grid: 1fr 6fr repeat(17, 2fr 6fr) 1fr/1fr 6fr repeat(11, 2fr 6fr) 1fr;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
 
       &[href]:hover {
         @include border(0.125em);
@@ -186,23 +233,28 @@ export default {
         font-weight: bold;
       }
 
-      &:not([href]) {
+      &:not([href]),
+      &:not([href]) > a {
         color: $gray-3 !important;
         cursor: default;
+        text-decoration: none;
       }
 
       > * {
         border: solid 0 currentColor;
       }
 
+      > a:only-child,
       > div:only-child,
       > aside {
         background: $white;
       }
 
+      > a,
       > div {
         align-items: center;
         display: flex;
+        font-size: 1em;
         justify-content: center;
         z-index: 1;
 
@@ -210,6 +262,7 @@ export default {
           border-radius: 0.125em;
         }
 
+        > div,
         > ruby {
           font-size: 0.75em;
         }
@@ -235,6 +288,14 @@ export default {
             border-top-right-radius: 0.125em;
           }
         }
+      }
+    }
+
+    > div {
+      pointer-events: none;
+
+      > a {
+        pointer-events: auto;
       }
     }
   }
