@@ -1219,15 +1219,15 @@
         "children": [
             {
                 "attr": "陽性患者数",
-                "value": 106,
+                "value": 90,
                 "children": [
                     {
                         "attr": "入院／入院調整中",
-                        "value": 81,
+                        "value": 74,
                         "children": [
                             {
                                 "attr": "軽症・中等症",
-                                "value": 78
+                                "value": 68
                             },
                             {
                                 "attr": "重症",
