@@ -73,6 +73,16 @@
           :unit="'件'"
         />
       </v-col>
+      <v-col cols="12" md="6" class="DataCard">
+        <time-bar-chart
+          title="治療終了者数"
+          :title-id="'number-of-treated'"
+          :chart-id="'time-bar-chart-inspections'"
+          :chart-data="treatedGraph"
+          :date="Data.treated_summary.date"
+          :unit="'件'"
+        />
+      </v-col>
     </v-row>
   </div>
 </template>
@@ -121,6 +131,8 @@ export default {
     ]
     const contacts2Items = ['府管轄保健所', '政令中核市']
     const contacts2Labels = Data.contacts2_summary.labels
+    // 治療終了者数
+    const treatedGraph = formatGraph(Data.treated_summary.data)
 
     const sumInfoOfPatients = {
       lText: patientsGraph[
@@ -140,10 +152,11 @@ export default {
       contacts2Graph,
       contacts2Items,
       contacts2Labels,
+      treatedGraph,
       sumInfoOfPatients,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: '府内の最新感染動向',
+        title: '大阪府の最新感染動向',
         date: Data.lastUpdate
       },
       newsItems: News.newsItems
@@ -152,7 +165,7 @@ export default {
   },
   head() {
     return {
-      title: '府内の最新感染動向'
+      title: '大阪府の最新感染動向'
     }
   }
 }
