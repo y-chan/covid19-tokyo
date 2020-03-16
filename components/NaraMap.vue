@@ -15,18 +15,29 @@
             :href="v.href"
             target="_blank"
             rel="noopener"
-            :style="{
-              MsGridColumn: v.column,
-              MsGridRow: v.row,
-              gridColumn: v.column,
-              gridRow: v.row
-            }"
+            :style="
+              // prettier-ignore
+              isChakraLike ? (([c, cs], [r, rs]) => ({
+                msGridColumn: c,
+                msGridColumnSpan: cs && cs - c,
+                msGridRow: r,
+                msGridRowSpan: rs && rs - r
+              }))(v.column.split('/'), v.row.split('/')) : {
+                gridColumn: v.column,
+                gridRow: v.row
+              }
+            "
           >
-            <div v-if="isChakraLike">
-              {{ v.name }}
-            </div>
-            <ruby v-else>
-              {{ v.name }}
+            <ruby>
+              <span
+                :style="
+                  isChakraLike && {
+                    transform: 'translateY(.5ex)'
+                  }
+                "
+              >
+                {{ v.name }}
+              </span>
               <rp><br /></rp>
               <rt>{{ v.kana }}</rt>
               <rp><br /></rp>
@@ -36,12 +47,18 @@
             v-for="(aside, i) in v.asides || []"
             :key="i"
             :class="aside.directions"
-            :style="{
-              MsGridColumn: aside.column,
-              MsGridRow: aside.row,
-              gridColumn: aside.column,
-              gridRow: aside.row
-            }"
+            :style="
+              // prettier-ignore
+              isChakraLike ? (([c, cs], [r, rs]) => ({
+                msGridColumn: c,
+                msGridColumnSpan: cs && cs - c,
+                msGridRow: r,
+                msGridRowSpan: rs && rs - r
+              }))(aside.column.split('/'), aside.row.split('/')) : {
+                gridColumn: aside.column,
+                gridRow: aside.row
+              }
+            "
           />
         </component>
       </div>
@@ -218,8 +235,13 @@ export default {
       & {
         bottom: 0;
         display: grid;
-        -ms-grid-columns: 1fr 6fr [2fr 6fr](11) 1fr;
-        -ms-grid-rows: 1fr 6fr [2fr 6fr](17) 1fr;
+        /* autoprefixer: ignore next */
+        -ms-grid-columns: 1fr 6fr 2fr 6fr 2fr 6fr 2fr 6fr 2fr 6fr 2fr 6fr 2fr
+          6fr 2fr 6fr 2fr 6fr 2fr 6fr 2fr 6fr 2fr 6fr 1fr;
+        /* autoprefixer: ignore next */
+        -ms-grid-rows: 1fr 6fr 2fr 6fr 2fr 6fr 2fr 6fr 2fr 6fr 2fr 6fr 2fr 6fr
+          2fr 6fr 2fr 6fr 2fr 6fr 2fr 6fr 2fr 6fr 2fr 6fr 2fr 6fr 2fr 6fr 2fr
+          6fr 2fr 6fr 2fr 6fr 1fr;
         grid: 1fr 6fr repeat(17, 2fr 6fr) 1fr/1fr 6fr repeat(11, 2fr 6fr) 1fr;
         left: 0;
         position: absolute;
