@@ -1,9 +1,6 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
-      <p class="Graph-Desc">
-        （注）同一の対象者について複数の検体を調査する場合あり
-      </p>
       <data-selector v-model="dataKind" />
     </template>
     <bar
@@ -92,7 +89,7 @@ export default {
       }
     },
     displayData() {
-      const colorArray = ['#364c97', '#2445b5']
+      const colorArray = ['#364c97', '#0076eb']
       if (this.dataKind === 'transition') {
         return {
           labels: this.labels,
