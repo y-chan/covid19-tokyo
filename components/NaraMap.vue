@@ -104,24 +104,8 @@ export default {
     }
   },
   methods: {
-    tryResize(
-      this: Vue & {
-        readonly $props: {
-          readonly hideOnSmall?: boolean
-        }
-      },
-      target: HTMLElement,
-      contentRect: DOMRectReadOnly
-    ) {
-      const percentage = contentRect.width / 384
-
-      if (this.$props.hideOnSmall && percentage < 1) {
-        target.classList.add('hidden')
-        target.style.removeProperty('font-size')
-      } else {
-        target.classList.remove('hidden')
-        target.style.fontSize = `${percentage}em`
-      }
+    tryResize(target: HTMLElement, contentRect: DOMRectReadOnly) {
+      target.style.fontSize = `${contentRect.width / 384}em`
     }
   }
 }
