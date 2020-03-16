@@ -61,6 +61,18 @@
           :unit="'件'"
         />
       </v-col>
+      <v-col cols="12" md="6" class="DataCard">
+        <time-stacked-bar-chart
+          title="新型コロナ受診相談センターへの相談件数"
+          :title-id="'number-of-contacts２'"
+          :chart-id="'time-stacked-bar-chart-inspections'"
+          :chart-data="contacts2Graph"
+          :date="Data.contacts2_summary.date"
+          :items="contacts2Items"
+          :labels="contacts2Labels"
+          :unit="'件'"
+        />
+      </v-col>
     </v-row>
   </div>
 </template>
@@ -68,6 +80,7 @@
 <script>
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
+import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
@@ -87,7 +100,8 @@ export default {
     StaticInfo,
     DataTable,
     SvgCard,
-    ConfirmedCasesTable
+    ConfirmedCasesTable,
+    TimeStackedBarChart
   },
   data() {
     // 感染者数グラフ
@@ -100,6 +114,13 @@ export default {
     const confirmedCases = formatConfirmedCases(Data.main_summary)
     // 府民向け相談窓口相談件数
     const contactsGraph = formatGraph(Data.contacts1_summary.data)
+    // 新型コロナ受診相談センターへの相談件数
+    const contacts2Graph = [
+      Data.contacts2_summary.data['府管轄保健所'],
+      Data.contacts2_summary.data['政令中核市']
+    ]
+    const contacts2Items = ['府管轄保健所', '政令中核市']
+    const contacts2Labels = Data.contacts2_summary.labels
 
     const sumInfoOfPatients = {
       lText: patientsGraph[
@@ -116,6 +137,9 @@ export default {
       inspectionsGraph,
       confirmedCases,
       contactsGraph,
+      contacts2Graph,
+      contacts2Items,
+      contacts2Labels,
       sumInfoOfPatients,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
