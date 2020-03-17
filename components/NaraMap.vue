@@ -288,7 +288,6 @@ export default {
           border-radius: 0.125em;
         }
 
-        > div,
         > ruby {
           font-size: 0.75em;
         }
