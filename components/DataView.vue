@@ -25,7 +25,7 @@
         <slot />
       </div>
       <v-footer class="DataView-Footer">
-        <time :datetime="date">{{ date }} 更新</time>
+        <time :datetime="date">{{ formattedDate }} 時点</time>
         <a
           v-if="url"
           class="OpenDataLink"
@@ -45,7 +45,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+import { convertDateToFormat } from '@/utils/formatDate'
 
 @Component
 export default class DataView extends Vue {
@@ -55,7 +55,7 @@ export default class DataView extends Vue {
   @Prop() private url!: string
   @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
 
-  formattedDate: string = convertDatetimeToISO8601Format(this.date)
+  formattedDate: string = convertDateToFormat(this.date)
 }
 </script>
 
