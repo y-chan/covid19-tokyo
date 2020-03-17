@@ -23,7 +23,7 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          title="陽性患者数"
+          title="陽性者数"
           :title-id="'number-of-confirmed-cases'"
           :chart-id="'time-bar-chart-patients'"
           :chart-data="patientsGraph"
@@ -33,7 +33,7 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <data-table
-          :title="'陽性患者の属性'"
+          :title="'陽性者の属性'"
           :title-id="'attributes-of-confirmed-cases'"
           :chart-data="patientsTable"
           :chart-option="{}"
@@ -43,12 +43,12 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          title="治療終了者数"
+          title="陰性確認済"
           :title-id="'number-of-treated'"
           :chart-id="'time-bar-chart-inspections'"
           :chart-data="treatedGraph"
           :date="Data.treated_summary.date"
-          :unit="'件'"
+          :unit="'人'"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
