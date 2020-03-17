@@ -61,7 +61,7 @@
             <img src="/line.png" alt="Facebook" />
           </a>
           <a
-	    href="https://github.com/code4nara/covid19"
+            href="https://github.com/code4nara/covid19"
             target="_blank"
             rel="noopener"
           >
@@ -157,7 +157,8 @@ export default {
         },
         {
           title: this.$t('Other local Government'),
-          link: 'https://github.com/tokyo-metropolitan-gov/covid19/blob/development/forkedSites.md#readme'
+          link:
+            'https://github.com/tokyo-metropolitan-gov/covid19/blob/development/forkedSites.md#readme'
         }
       ]
     },
