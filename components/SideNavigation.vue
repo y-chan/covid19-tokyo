@@ -113,7 +113,7 @@ export default {
         {
           icon: 'mdi-domain',
           title: this.$t('Related info'),
-          link: 'http://www.pref.osaka.lg.jp/iryo/osakakansensho/corona.html'
+          link: 'http://www.pref.osaka.lg.jp/kikaku/covid19info/index.html'
         },
         {
           icon: 'mdi-account-multiple',
