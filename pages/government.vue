@@ -13,7 +13,9 @@
     <TextCard title="愛知県" link="https://stopcovid19.code4.nagoya/" />
     <TextCard title="三重県" link="https://covid19-mie.netlify.com/" />
     <TextCard title="兵庫県" link="https://stop-covid19-hyogo.org/" />
+    <TextCard title="岡山県" link="https://covid19-okayama.netlify.com/" />
     <TextCard title="愛媛県" link="https://ehime-covid19.com/" />
+    <TextCard title="高知県" link="https://covid19-kochi.netlify.com/" />
     <TextCard title="福岡県" link="https://stopcovid19.codeforfukuoka.org/" />
     <TextCard title="長崎県" link="https://stopcovid19-nagasaki.netlify.com/" />
   </div>
