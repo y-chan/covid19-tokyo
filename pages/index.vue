@@ -43,21 +43,21 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          title="検査実施数"
-          :title-id="'number-of-tested'"
+          title="治療終了者数"
+          :title-id="'number-of-treated'"
           :chart-id="'time-bar-chart-inspections'"
-          :chart-data="inspectionsGraph"
-          :date="Data.inspections_summary.date"
+          :chart-data="treatedGraph"
+          :date="Data.treated_summary.date"
           :unit="'件'"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          title="府民向け相談窓口への相談件数"
-          :title-id="'number-of-contacts1'"
+          title="検査実施数"
+          :title-id="'number-of-tested'"
           :chart-id="'time-bar-chart-inspections'"
-          :chart-data="contactsGraph"
-          :date="Data.contacts1_summary.date"
+          :chart-data="inspectionsGraph"
+          :date="Data.inspections_summary.date"
           :unit="'件'"
         />
       </v-col>
@@ -75,11 +75,11 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          title="治療終了者数"
-          :title-id="'number-of-treated'"
+          title="府民向け相談窓口への相談件数"
+          :title-id="'number-of-contacts1'"
           :chart-id="'time-bar-chart-inspections'"
-          :chart-data="treatedGraph"
-          :date="Data.treated_summary.date"
+          :chart-data="contactsGraph"
+          :date="Data.contacts1_summary.date"
           :unit="'件'"
         />
       </v-col>
