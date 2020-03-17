@@ -15,20 +15,7 @@
             :href="v.href"
             target="_blank"
             rel="noopener"
-            :style="
-              // prettier-ignore
-              isChakraLike ? (([c, cs], [r, rs]) => ({
-                msGridColumn: c,
-                msGridColumnSpan: cs && cs - c,
-                msGridRow: r,
-                msGridRowSpan: rs && rs - r,
-                gridColumn: v.column,
-                gridRow: v.row
-              }))(v.column.split('/'), v.row.split('/')) : {
-                gridColumn: v.column,
-                gridRow: v.row
-              }
-            "
+            :style="setPlace(v)"
           >
             <ruby>
               <span
@@ -49,20 +36,7 @@
             v-for="(aside, i) in v.asides || []"
             :key="i"
             :class="aside.directions"
-            :style="
-              // prettier-ignore
-              isChakraLike ? (([c, cs], [r, rs]) => ({
-                msGridColumn: c,
-                msGridColumnSpan: cs && cs - c,
-                msGridRow: r,
-                msGridRowSpan: rs && rs - r,
-                gridColumn: aside.column,
-                gridRow: aside.row
-              }))(aside.column.split('/'), aside.row.split('/')) : {
-                gridColumn: aside.column,
-                gridRow: aside.row
-              }
-            "
+            :style="setPlace(aside)"
           />
         </component>
       </div>
@@ -145,6 +119,27 @@ export default {
     }
   },
   methods: {
+    setPlace(
+      this: Vue & { isChakraLike?: boolean },
+      target: {
+        row: string
+        column: string
+      }
+    ) {
+      return this.isChakraLike
+        ? (([c, cs], [r, rs]) => ({
+            msGridColumn: c,
+            msGridColumnSpan: cs && Number(cs) - Number(c),
+            msGridRow: r,
+            msGridRowSpan: rs && Number(rs) - Number(r),
+            gridColumn: target.column,
+            gridRow: target.row
+          }))(target.column.split('/'), target.row.split('/'))
+        : {
+            gridColumn: target.column,
+            gridRow: target.row
+          }
+    },
     tryResize(target: HTMLElement, contentRect: DOMRectReadOnly) {
       target.style.fontSize = `${contentRect.width / 384}em`
     }
