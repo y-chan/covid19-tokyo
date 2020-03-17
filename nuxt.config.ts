@@ -67,6 +67,11 @@ const config: Configuration = {
         hid: 'twitter:image',
         name: 'twitter:image',
         content: 'https://covid19-osaka.info/ogp.png'
+      },
+      {
+        hid: 'apple-mobile-web-app-title',
+        name: 'apple-mobile-web-app-title',
+        content: '大阪府コロナウィルス対策サイト'
       }
     ],
     link: [
