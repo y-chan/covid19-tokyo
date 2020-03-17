@@ -79,7 +79,8 @@
     "Task Force": "大阪府新型コロナウイルス対策本部",
     "Message from Governor": "知事からのメッセージ",
     "Official Twitter": "大阪府公式Twitter",
-    "Official Facebook": "大阪府公式Facebook"
+    "Official Facebook": "大阪府公式Facebook",
+    "Official LINE": "大阪府公式LINE"
   }
 }
 </i18n>
@@ -141,7 +142,11 @@ export default {
         },
         {
           title: this.$t('Official Facebook'),
-          link: 'https://www.facebook.com/osaka.pref',
+          link: 'https://www.facebook.com/osaka.pref'
+        },
+        {
+          title: this.$t('Official LINE'),
+          link: 'https://lin.ee/8IJ5WMv',
           divider: true
         }
       ]
