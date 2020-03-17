@@ -106,10 +106,10 @@
       大阪府では、府民からの健康相談に応えるため、専用の府民相談窓口を設置しています。<br />
       また、新型コロナウイルス感染症に感染が疑われる方を対象に、府内各保健所に、新型コロナ受診相談センター（帰国者・接触者相談センター）を設置しています。<br />
       詳しくは、「<a
-        href="http://www.pref.osaka.lg.jp/iryo/osakakansensho/corona.html"
+        href="http://www.pref.osaka.lg.jp/iryo/osakakansensho/corona-denwa.html"
         target="_blank"
         rel="noopener"
-        >大阪府新型コロナウイルス感染症について</a
+        >新型コロナウイルス感染症の発生に伴う電話相談窓口について</a
       >」をご参照ください。<br />
       <br />
       本サイトの構築に関することについては、大阪府総務部スマートシティ戦略準備室にお問い合わせください。<br />
