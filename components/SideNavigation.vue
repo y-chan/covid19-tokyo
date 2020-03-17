@@ -53,6 +53,20 @@
           >
             <img src="/facebook.png" alt="Facebook" />
           </a>
+          <a
+            href="https://line.me/R/ti/p/%40688bjyqz"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="/line.png" alt="Facebook" />
+          </a>
+          <a
+	    href="https://github.com/code4nara/covid19"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="/github.png" alt="GitHub" />
+          </a>
         </div>
         <!-- <small class="SideNavigation-Copyright" lang="en">
           Copyright &copy; 2020 Tokyo Metropolitan Government. All Rights
@@ -143,8 +157,7 @@ export default {
         },
         {
           title: this.$t('Other local Government'),
-          link: '/government',
-          divider: true
+          link: 'https://github.com/tokyo-metropolitan-gov/covid19/blob/development/forkedSites.md#readme'
         }
       ]
     },
