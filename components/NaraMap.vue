@@ -29,7 +29,6 @@
               </span>
               <rp><br /></rp>
               <rt>{{ v.kana }}</rt>
-              <rp><br /></rp>
             </ruby>
           </component>
           <aside
