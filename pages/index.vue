@@ -43,11 +43,12 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          title="陰性確認済"
+          title="陰性確認済（退院者累計）"
           :title-id="'number-of-treated'"
           :chart-id="'time-bar-chart-inspections'"
           :chart-data="treatedGraph"
           :date="Data.treated_summary.date"
+          :note="'（注）退院者とは新型コロナウイルス感染症が治癒した者'"
           :unit="'人'"
         />
       </v-col>
