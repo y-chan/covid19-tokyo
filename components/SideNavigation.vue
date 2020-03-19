@@ -94,7 +94,7 @@
     "Official statements from Task Force": "奈良県総務部知事公室防災統括室",
     "Government official website": "奈良県公式ホームページ",
     "About us": "当サイトについて",
-    "Municipalities": "奈良県内各市町村の関連ホームページ",
+    "Municipalities": "奈良県内各市町村の関連ページ",
     "Other local Government": "他自治体の対策サイト"
   }
 }
