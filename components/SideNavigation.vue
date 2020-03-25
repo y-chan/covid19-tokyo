@@ -88,7 +88,7 @@ export default {
         },
         {
           icon: 'covid',
-          title: this.$t('新型コロナウイルス感染症'),
+          title: this.$t('新型コロナウイルス感染症について'),
           link: 'http://www.pref.osaka.lg.jp/iryo/osakakansensho/corona.html'
         },
         {
