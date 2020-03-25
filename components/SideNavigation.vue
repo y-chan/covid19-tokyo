@@ -18,6 +18,7 @@
       </nuxt-link>
     </div>
     <v-divider class="SideNavigation-HeadingDivider" />
+
     <div class="sp-none" :class="{ open: isNaviOpen }">
       <v-icon
         class="SideNavigation-ListContainerIcon pc-none"
@@ -37,6 +38,17 @@
           <v-divider v-show="item.divider" class="SideNavigation-Divider" />
         </v-container>
       </v-list>
+
+      <div
+        v-if="this.$i18n.locales.length > 1"
+        class="SideNavigation-Language"
+      >
+        <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
+          {{ $t('多言語対応選択メニュー') }}
+        </label>
+        <LanguageSelector />
+      </div>
+
       <div class="SideNavigation-Footer">
         <small class="SideNavigation-Copyright" lang="en">
           Content on This Site is Licensed Under a
@@ -88,9 +100,12 @@
 
 <script>
 import ListItem from '@/components/ListItem'
+import { TranslateResult } from 'vue-i18n'
+import LanguageSelector from '@/components/LanguageSelector.vue'
 
 export default {
   components: {
+    LanguageSelector,
     ListItem
   },
   props: {
