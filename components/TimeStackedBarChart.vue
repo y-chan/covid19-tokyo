@@ -78,13 +78,17 @@ export default {
       if (this.dataKind === 'transition') {
         return {
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
-          sText: `${this.labels[this.labels.length - 1]} の合計`,
+          sText: `${this.$t('{date}の合計', {
+            date: this.labels[this.labels.length - 1]
+          })}`,
           unit: this.unit
         }
       }
       return {
         lText: this.sum(this.cumulativeSum(this.chartData)).toLocaleString(),
-        sText: `${this.labels[this.labels.length - 1]} の全体累計`,
+        sText: `${this.$t('{date}の全体累計', {
+          date: this.labels[this.labels.length - 1]
+        })}`,
         unit: this.unit
       }
     },
@@ -130,14 +134,16 @@ export default {
             label: tooltipItem => {
               const labelText =
                 this.dataKind === 'transition'
-                  ? `${sumArray[tooltipItem.index]}${unit}（府管轄保健所: ${
-                      data[0][tooltipItem.index]
-                    }/政令中核市保健所: ${data[1][tooltipItem.index]}）`
+                  ? `${sumArray[tooltipItem.index]} ${unit}（${this.$t(
+                      '府管轄保健所'
+                    )}: ${data[0][tooltipItem.index]}/${this.$t(
+                      '政令中核市保健所'
+                    )}: ${data[1][tooltipItem.index]}）`
                   : `${
                       cumulativeSumArray[tooltipItem.index]
-                    }${unit}（府管轄保健所: ${
+                    } ${unit}（${this.$t('府管轄保健所')}: ${
                       cumulativeData[0][tooltipItem.index]
-                    }/政令中核市保健所: ${
+                    }/${this.$t('政令中核市保健所')}: ${
                       cumulativeData[1][tooltipItem.index]
                     }）`
               return labelText
