@@ -86,7 +86,7 @@
           <div :class="$style.pillar">
             <div :class="$style.content">
               <!-- eslint-disable vue/no-v-html-->
-              <span v-html="$t('陰性確認済み<br />（退院者累計）')" />
+              <span v-html="$t('陰性確認済<br />（退院者累計）')" />
               <!-- eslint-enable vue/no-v-html-->
               <span>
                 <strong>{{ 退院 }}</strong>
