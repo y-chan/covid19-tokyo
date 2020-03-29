@@ -3,10 +3,9 @@
     <li :class="[$style.box, $style.boxTesting]">
       <div :class="[$style.pillar, $style.pillarTesting]">
         <div :class="$style.content">
-          <span>
-            {{ $t('検査実施') }}
-            <br />({{ $t('件数') }})
-          </span>
+          <!-- eslint-disable vue/no-v-html-->
+          <span v-html="$t('検査実施<br />件数')" />
+          <!-- eslint-enable vue/no-v-html-->
           <span>
             <strong>{{ 検査実施人数 }}</strong>
             <span :class="$style.unit">{{ $t('件.tested') }}</span>
