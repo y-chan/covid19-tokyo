@@ -148,6 +148,11 @@ export default {
       unit: '人'
     }
 
+    // 陽性患者の属性 ヘッダー翻訳
+    for (const header of patientsTable.headers) {
+      header.text = this.$t(header.value)
+    }
+
     // 陽性患者の属性 中身の翻訳
     for (const row of patientsTable.datasets) {
       row['居住地'] = this.$t(row['居住地'])
