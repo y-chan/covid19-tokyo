@@ -25,7 +25,11 @@
         <slot />
       </div>
       <v-footer class="DataView-Footer">
-        <time :datetime="date">{{ formattedDate }} 時点</time>
+        <time :datetime="date">{{
+          $t('{date} 時点', {
+            date: formattedDate
+          })
+        }}</time>
         <a
           v-if="url"
           class="OpenDataLink"

@@ -99,7 +99,7 @@ export default {
       if (this.dataKind === 'transition') {
         return {
           lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-          sText: `${this.$t('実績値')}（${this.$t('前日比')}: ${
+          sText: `${this.$t('実績値')}（${this.$t('前日比')}：${
             this.displayTransitionRatio
           } ${this.unit}）`,
           unit: this.unit
@@ -154,6 +154,7 @@ export default {
     displayOption() {
       const unit = this.unit
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
+      const self = this
       return {
         tooltips: {
           displayColors: false,
@@ -165,10 +166,14 @@ export default {
               return labelText
             },
             title(tooltipItem, data) {
-              return data.labels[tooltipItem[0].index].replace(
-                /(\w+)\/(\w+)/,
-                '$1/$2'
+              const matches = data.labels[tooltipItem[0].index].match(
+                /(\w+)\/(\w+)/
               )
+
+              return self.$t('{month}月{date}日', {
+                month: matches[1],
+                date: matches[2]
+              })
             }
           }
         },
