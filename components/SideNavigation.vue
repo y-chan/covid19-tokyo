@@ -8,7 +8,7 @@
       >
         mdi-menu
       </v-icon>
-      <nuxt-link to="/" class="SideNavigation-HeadingLink">
+      <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
         <div class="SideNavigation-Logo">
           <img src="/logo.png" :alt="$t('大阪府')" />
         </div>
@@ -84,7 +84,7 @@ export default {
         {
           icon: 'mdi-chart-timeline-variant',
           title: this.$t('府内の最新感染動向'),
-          link: '/'
+          link: this.localePath('/')
         },
         {
           icon: 'covid',
@@ -109,7 +109,7 @@ export default {
         },
         {
           title: this.$t('当サイトについて'),
-          link: '/about'
+          link: this.localePath('/about')
         },
         {
           title: this.$t('大阪府公式ホームページ'),
