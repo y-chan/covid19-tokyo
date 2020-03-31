@@ -10,6 +10,7 @@ const headers = [
 ]
 
 type DataType = {
+  No: number
   リリース日: Date
   居住地: string | null
   年代: string | null
@@ -37,9 +38,9 @@ export default (data: DataType[]) => {
     headers,
     datasets: []
   }
-  data.forEach((d, i) => {
+  data.forEach(d => {
     const TableRow: TableDataType = {
-      項番: i + 1,
+      項番: d.No,
       日付: dayjs(d['リリース日']).format('MM/DD') ?? '不明',
       居住地: d['居住地'] ?? '不明',
       年代: d['年代'] ?? '不明',
