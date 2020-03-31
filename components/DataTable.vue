@@ -12,6 +12,7 @@
       :fixed-header="true"
       :mobile-breakpoint="0"
       class="cardTable"
+      :custom-sort="customSort"
     />
     <div class="note">
       ※退院とは新型コロナウイルス感染症が治癒した者<br />
@@ -105,6 +106,22 @@ export default {
       type: String,
       required: false,
       default: ''
+    }
+  },
+  methods: {
+    customSort(items, index, isDescending) {
+      // if (index[0] === '年代') {
+      // }
+      if (isDescending[0] === undefined) return items
+      console.log(items, index, isDescending)
+      items.sort((a, b) => {
+        if (b[index[0]] < a[index[0]]) {
+          return isDescending[0] ? -1 : 1
+        } else {
+          return isDescending[0] ? 1 : -1
+        }
+      })
+      return items
     }
   }
 }
