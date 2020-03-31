@@ -78,6 +78,8 @@
 import DataView from '@/components/DataView.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
+const excludeAges = ['就学児', '未就学児']
+
 export default {
   components: { DataView, DataViewBasicInfoPanel },
   props: {
@@ -110,18 +112,44 @@ export default {
   },
   methods: {
     customSort(items, index, isDescending) {
-      // if (index[0] === '年代') {
-      // }
       if (isDescending[0] === undefined) return items
-      console.log(items, index, isDescending)
+      if (index[0] === '年代') {
+        return this.createSortAgeData(items, index[0], isDescending[0])
+      } else {
+        items.sort((a, b) => {
+          if (b[index[0]] < a[index[0]]) {
+            return isDescending[0] ? -1 : 1
+          } else {
+            return isDescending[0] ? 1 : -1
+          }
+        })
+      }
+      return items
+    },
+    createSortAgeData(items, index, isDescending) {
+      const excludeItems = []
       items.sort((a, b) => {
-        if (b[index[0]] < a[index[0]]) {
-          return isDescending[0] ? -1 : 1
+        if (b[index] < a[index]) {
+          return -1
         } else {
-          return isDescending[0] ? 1 : -1
+          return 1
         }
       })
-      return items
+      const filterItems = items.filter(item => {
+        if (excludeAges.includes(item[index])) {
+          excludeItems.push(item)
+          return false
+        } else {
+          return true
+        }
+      })
+      excludeItems.forEach(item => {
+        filterItems.push(item)
+      })
+      if (isDescending) {
+        filterItems.reverse()
+      }
+      return filterItems
     }
   }
 }
