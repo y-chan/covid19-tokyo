@@ -1,13 +1,13 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <confirmed-cases-card
-      :title="$t('検査陽性者の状況')"
+      :title="$t('入院患者数の状況')"
       :title-id="'details-of-confirmed-cases'"
       :date="mainSummary.last_update"
       :url="'http://www.pref.nara.jp/'"
     >
       <confirmed-cases-table
-        :aria-label="$t('検査陽性者の状況')"
+        :aria-label="$t('入院患者数の状況')"
         v-bind="confirmedCases"
       />
     </confirmed-cases-card>

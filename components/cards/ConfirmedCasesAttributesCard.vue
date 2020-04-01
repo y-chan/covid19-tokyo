@@ -7,7 +7,7 @@
       :chart-option="{}"
       :date="patients.last_update"
       :info="sumInfoOfPatients"
-      :url="'https://www.pref.kyoto.jp/kentai/news/novelcoronavirus.html#F'"
+      :url="'http://www.pref.nara.jp/'"
       :source="$t('オープンデータを入手')"
     />
   </v-col>
@@ -15,7 +15,7 @@
 
 <script>
 import patients from '@/data/patients.json'
-import patientsSummary from '@/data/patients_summary2.json'
+import patientsSummary from '@/data/patients_summary.json'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
 import DataTable from '@/components/DataTable.vue'
