@@ -43,9 +43,6 @@
     <chiyoda-visitors-card
       v-else-if="this.$route.params.card == 'chiyoda-visitors'"
     />-->
-    <patients-and-sickbeds
-      v-else-if="this.$route.params.card == 'patients-and-sickbeds'"
-    />
   </div>
 </template>
 
@@ -69,12 +66,10 @@ import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import ShinjukuVisitorsCard from '@/components/cards/ShinjukuVisitorsCard.vue'
 import ChiyodaVisitorsCard from '@/components/cards/ChiyodaVisitorsCard.vue' */
-import PatientsAndSickbeds from '@/components/cards/PatientsAndSickbeds.vue'
-import sickbedsSummary from '@/data/sickbeds_summary.json'
 
 export default {
   components: {
-    ConfirmedCasesDetailsCard,
+    ConfirmedCasesDetailsCard
     // TestedCasesDetailsCard,
     // ConfirmedCasesNumberCard,
     // ConfirmedCasesAttributesCard,
@@ -86,13 +81,12 @@ export default {
     AgencyCard,
     ShinjukuVisitorsCard,
     ChiyodaVisitorsCard */
-    PatientsAndSickbeds
   },
   data() {
     let title, updatedAt
     switch (this.$route.params.card) {
       case 'details-of-confirmed-cases':
-        title = this.$t('入院患者数の状況')
+        title = this.$t('検査陽性者の状況')
         // updatedAt = inspectionsSummary.last_update
         updatedAt = mainSummary.last_update
         break
@@ -142,10 +136,6 @@ export default {
         title = this.$t('千代田区エリアの来訪者数の推移（参考値）')
         updatedAt = ChiyodaData.date
         break */
-      case 'patients-and-sickbeds':
-        title = this.$t('入院患者数と残り病床数')
-        updatedAt = sickbedsSummary.last_update
-        break
     }
 
     const data = {
