@@ -405,34 +405,5 @@
 			}
 		]
 	},
-    "main_summary": {
-        "date": "2020/04/01 19:00",
-        "attr": "陽性患者数",
-        "value": 16,
-        "children": [
-            {
-                "attr": "入院／入院調整中",
-                "value":3,
-                "children": [
-                    {
-                        "attr": "無症状",
-                        "value": 0
-                    },
-                    {
-                        "attr": "患者",
-                        "value": 3
-                    }
-                ]
-            },
-            {
-                "attr": "退院",
-                "value": 13
-            },
-            {
-                "attr": "死亡",
-                "value": 0
-            }
-        ]
-    },
     "lastUpdate": "2020/04/01 19:00"
 }
