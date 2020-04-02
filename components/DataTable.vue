@@ -130,9 +130,9 @@ export default {
       const excludeItems = []
       items.sort((a, b) => {
         if (b[index] < a[index]) {
-          return -1
-        } else {
           return 1
+        } else {
+          return -1
         }
       })
       const filterItems = items.filter(item => {
@@ -143,8 +143,8 @@ export default {
           return true
         }
       })
-      excludeItems.reverse().forEach(item => {
-        filterItems.push(item)
+      excludeItems.forEach(item => {
+        filterItems.unshift(item)
       })
       if (isDescending) {
         filterItems.reverse()
