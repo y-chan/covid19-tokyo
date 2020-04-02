@@ -13,7 +13,7 @@ Please join our team from `Help Translate "StopCovid19Osaka"` button. You will n
 
 After joining, please go to the dashboard page.
 
-https://www.transifex.com/stopcovid19-osaka/stopcovid19osaka//dashboard/
+https://www.transifex.com/stopcovid19-osaka/stopcovid19osaka/dashboard/
 
 Press `Translate` button on the language resource that you want to contribute.
 
