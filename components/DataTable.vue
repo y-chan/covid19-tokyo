@@ -143,7 +143,7 @@ export default {
           return true
         }
       })
-      excludeItems.forEach(item => {
+      excludeItems.reverse().forEach(item => {
         filterItems.push(item)
       })
       if (isDescending) {
