@@ -9,7 +9,7 @@ https://www.transifex.com/stopcovid19-osaka/stopcovid19osaka/
 
 Please join our team from `Help Translate "StopCovid19Osaka"` button. You will need to make/login account before joining our team.
 
-![](./.github/img/2020-03-16-16-05-37.png)
+![](./.github/img/translation01.png)
 
 After joining, please go to the dashboard page.
 
@@ -17,11 +17,11 @@ https://www.transifex.com/stopcovid19-osaka/stopcovid19osaka//dashboard/
 
 Press `Translate` button on the language resource that you want to contribute.
 
-![](./.github/img/2020-03-16-16-09-47.png)
+![](./.github/img/translation02.png)
 
 You will see the translation editor. Search the text you want to translate from the left pane, then enter the translated text in the text area on the right pane.
 
-![](./.github/img/2020-03-16-16-11-14.png)
+![](./.github/img/translation03.png)
 
 After editing, please press `Save Translation` button. 
 
