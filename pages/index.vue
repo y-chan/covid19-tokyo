@@ -28,7 +28,7 @@
           :chart-data="patientsGraph"
           :date="Data.patients.date"
           :unit="'人'"
-          :url="''"
+          :url="'http://www.pref.nara.jp/'"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -39,7 +39,7 @@
           :chart-option="{}"
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
-          :url="''"
+          :url="'http://www.pref.nara.jp/'"
         />
       </v-col>
       <!--
@@ -76,6 +76,7 @@
         />
       </v-col>
       -->
+      <patients-and-sickbeds />
     </v-row>
   </div>
 </template>
@@ -98,6 +99,7 @@ import News from '@/data/news.json'
 //  svg chara table
 // import SvgCard from '@/components/SvgCard.vue'
 // import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
+import PatientsAndSickbeds from '@/components/cards/PatientsAndSickbeds.vue'
 
 export default {
   components: {
@@ -108,9 +110,10 @@ export default {
     WhatsNew,
     //    StaticInfo,
     ConfirmedCasesDetailsCard,
-    DataTable
+    DataTable,
     // SvgCard,
     // ConfirmedCasesTable
+    PatientsAndSickbeds
   },
   data() {
     // 感染者数グラフ
