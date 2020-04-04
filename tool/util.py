@@ -5,7 +5,7 @@ import shutil
 import time
 
 from datetime import datetime, timedelta, timezone
-from json import dumps
+from json import dumps, load
 
 from typing import Dict
 
@@ -73,3 +73,8 @@ def get_xlsx(url: str, filename: str) -> openpyxl.workbook.workbook.Workbook:
 def dumps_json(file_name: str, json_data: Dict) -> None:
     with codecs.open("./data/" + file_name, "w", "utf-8") as f:
         f.write(dumps(json_data, ensure_ascii=False, indent=4, separators=(',', ': ')))
+
+
+def get_json(file_name: str) -> Dict:
+    with codecs.open("./data/" + file_name, "r", "utf-8") as f:
+        return load(f)

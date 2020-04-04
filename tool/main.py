@@ -1,13 +1,14 @@
 from datetime import datetime, timedelta
 
 import config
-from util import MAIN_SUMMARY_INIT, excel_date, get_xlsx, jst, dumps_json
+from util import MAIN_SUMMARY_INIT, excel_date, get_xlsx, jst, dumps_json, get_json
 
 from typing import Dict
 
 
 class DataJson:
     def __init__(self):
+        self.current_data_json = get_json(config.data_json_filename)
         # self.patients_file = get_xlsx(config.patients_xlsx, "patients.xlsx")
         self.patients_and_inspections_file = get_xlsx(
             config.patients_and_inspections_xlsx, "patients_and_inspections.xlsx"
@@ -202,9 +203,11 @@ class DataJson:
             "contacts1_summary": self.contacts1_summary_json(),
             "contacts2_summary": self.contacts2_summary_json(),
             "treated_summary": self.treated_summary_json(),
-            "lastUpdate": self.last_update,
+            "lastUpdate": self.current_data_json["lastUpdate"],
             "main_summary": self.main_summary_json()
         }
+        if self._data_json != self.current_data_json:
+            self._data_json["lastUpdate"] = self.last_update
 
     def get_patients_last_update(self) -> str:
         return self.patients_sheet.cell(row=1, column=1).value.strftime("%Y/%m/%d %H:%M")
@@ -248,4 +251,4 @@ class DataJson:
 
 
 if __name__ == '__main__':
-    dumps_json("data.json", DataJson().data_json())
+    dumps_json(config.data_json_filename, DataJson().data_json())
