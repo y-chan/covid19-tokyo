@@ -17,7 +17,6 @@
         </h1>
       </nuxt-link>
     </div>
-    <v-divider class="SideNavigation-HeadingDivider" />
 
     <div class="sp-none" :class="{ open: isNaviOpen }">
       <v-icon
@@ -27,6 +26,21 @@
       >
         mdi-close
       </v-icon>
+
+      <div class="SideNavigation-ListItemContainer">
+        <div
+          v-if="this.$i18n.locales.length > 1"
+          class="SideNavigation-Language"
+        >
+          <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
+            {{ $t('多言語対応選択メニュー') }}
+          </label>
+          <LanguageSelector />
+        </div>
+      </div>
+
+      <v-divider class="SideNavigation-Divider" />
+
       <v-list :flat="true">
         <v-container
           v-for="(item, i) in items"
@@ -38,14 +52,6 @@
           <v-divider v-show="item.divider" class="SideNavigation-Divider" />
         </v-container>
       </v-list>
-
-      <div v-if="this.$i18n.locales.length > 1" class="SideNavigation-Language">
-        <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
-          {{ $t('多言語対応選択メニュー') }}
-        </label>
-        <LanguageSelector />
-      </div>
-
       <div class="SideNavigation-Footer">
         <small class="SideNavigation-Copyright" lang="en">
           Content on This Site is Licensed Under a
@@ -227,6 +233,19 @@ export default {
     font-weight: bold;
   }
 }
+
+.SideNavigation-Menu {
+  @include lessThan($small) {
+    padding-top: 50px;
+  }
+}
+
+.SideNavigation-LanguageLabel {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.85rem;
+}
+
 .open {
   @include lessThan($small) {
     position: fixed;
