@@ -2,8 +2,7 @@
   <data-view class="SvgCard" :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="Graph-Desc">
-        （注）奈良県の検査実施人数は不明<br />
-        陽性者数・入院中には、県外のクルーズ船乗客等を含む。
+        （注）表の数字は奈良市が公表したデータ
       </p>
     </template>
     <slot />

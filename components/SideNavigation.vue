@@ -88,6 +88,7 @@
     "Nara Prefecture Government": "奈良県",
     "Tokyo COVID-19 Task Force": "新型コロナウイルス感染症対策本部",
     "The latest updates": "県内の最新感染動向",
+    "The latest updates of NaraCity": "奈良市内の最新感染動向",
     "For those concerned about novel coronavirus infections": "新型コロナウイルス感染症が心配なときに",
     "for Families with children": "お子様をお持ちの皆様へ",
     "for Citizens": "県民の皆様へ",
@@ -125,6 +126,12 @@ export default {
           icon: 'mdi-chart-timeline-variant',
           title: this.$t('The latest updates'),
           link: '/'
+        },
+        {
+          icon: 'mdi-chart-timeline-variant',
+          title: this.$t('The latest updates of NaraCity'),
+          link: '/naracity',
+          divider: true
         },
         {
           icon: 'covid',
