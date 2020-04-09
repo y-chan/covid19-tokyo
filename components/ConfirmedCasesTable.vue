@@ -101,6 +101,7 @@
 </template>
 
 <script>
+/* eslint-disable vue/prop-name-casing */
 export default {
   props: {
     検査実施人数: {
