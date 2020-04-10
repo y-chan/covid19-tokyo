@@ -92,7 +92,6 @@
           </div>
         </div>
       </div>
-
       <div v-if="!['ja', 'ja-basic'].includes($i18n.locale)" class="pt-8">
         <span>{{ $t('ひまわり') }}</span>
       </div>
