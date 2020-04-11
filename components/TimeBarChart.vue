@@ -116,7 +116,7 @@ export default {
               data: this.chartData.map(d => {
                 return d.transition
               }),
-              backgroundColor: '#bd3f4c',
+              backgroundColor: '#85005d',
               borderWidth: 0
             }
           ]
@@ -132,7 +132,7 @@ export default {
             data: this.chartData.map(d => {
               return d.cumulative
             }),
-            backgroundColor: '#bd3f4c',
+            backgroundColor: '#85005d',
             borderWidth: 0
           }
         ]
@@ -199,22 +199,8 @@ export default {
                   display: true
                 },
                 callback: label => {
-                  const monthStringArry = [
-                    'Jan',
-                    'Feb',
-                    'Mar',
-                    'Apr',
-                    'May',
-                    'Jun',
-                    'Jul',
-                    'Aug',
-                    'Sep',
-                    'Oct',
-                    'Nov',
-                    'Dec'
-                  ]
-                  const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
-                  return month + '月'
+                  const month = label.split(/\s+/)[0]
+                  return month
                 }
               },
               type: 'time',
