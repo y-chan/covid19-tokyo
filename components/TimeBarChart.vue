@@ -1,14 +1,17 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
+  <data-view :title="title" :date="date" :title-id="titleId">
     <template v-slot:button>
       <data-selector v-model="dataKind" />
     </template>
-    <bar
-      :chart-id="chartId"
-      :chart-data="displayData"
-      :options="displayOption"
-      :height="240"
-    />
+    <v-layout column>
+      <bar :chart-data="displayData" :options="displayOption" :height="240" />
+      <date-select-slider
+        :chart-data="chartData"
+        :value="[0, sliderMax]"
+        :slider-max="sliderMax"
+        @sliderInput="sliderUpdate"
+      />
+    </v-layout>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -22,12 +25,19 @@
 <style></style>
 
 <script>
+import dayjs from 'dayjs'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import DateSelectSlider from '@/components/DateSelectSlider.vue'
 
 export default {
-  components: { DataView, DataSelector, DataViewBasicInfoPanel },
+  components: {
+    DataView,
+    DataSelector,
+    DataViewBasicInfoPanel,
+    DateSelectSlider
+  },
   props: {
     title: {
       type: String,
@@ -72,10 +82,17 @@ export default {
   },
   data() {
     return {
-      dataKind: this.defaultdatakind
+      dataKind: this.defaultdatakind,
+      graphRange: [0, this.chartData.length - 1]
     }
   },
   computed: {
+    sliderMax() {
+      if (!this.chartData || this.chartData.length === 0) {
+        return 1
+      }
+      return this.chartData.length - 1
+    },
     displayCumulativeRatio() {
       const lastDay = this.chartData.slice(-1)[0].cumulative
       const lastDayBefore = this.chartData.slice(-2)[0].cumulative
@@ -94,13 +111,14 @@ export default {
           unit: this.unit
         }
       }
+      const lastDateString = dayjs(this.chartData.slice(-1)[0].label).format(
+        'M/DD'
+      )
       return {
         lText: this.chartData[
           this.chartData.length - 1
         ].cumulative.toLocaleString(),
-        sText: `${this.chartData.slice(-1)[0].label} 累計値（前日比：${
-          this.displayCumulativeRatio
-        } ${this.unit}）`,
+        sText: `${lastDateString} 累計値（前日比：${this.displayCumulativeRatio} ${this.unit}）`,
         unit: this.unit
       }
     },
@@ -141,6 +159,7 @@ export default {
     displayOption() {
       const unit = this.unit
       return {
+        animation: false,
         tooltips: {
           displayColors: false,
           callbacks: {
@@ -150,10 +169,7 @@ export default {
               return labelText
             },
             title(tooltipItem, data) {
-              return data.labels[tooltipItem[0].index].replace(
-                /(\w+)\/(\w+)/,
-                '$1月$2日'
-              )
+              return dayjs(data.labels[tooltipItem[0].index]).format('M月D日')
             }
           }
         },
@@ -166,24 +182,43 @@ export default {
           xAxes: [
             {
               id: 'day',
+              type: 'time',
+              offset: true,
+              time: {
+                tooltipFormat: 'MM/DD',
+                unit: 'day',
+                unitStepSize: 1,
+                displayFormats: {
+                  day: 'D'
+                },
+                round: 'day'
+              },
               stacked: true,
               gridLines: {
                 display: false
               },
               ticks: {
+                min: this.chartData[this.graphRange[0]].label,
+                max: this.chartData[this.graphRange[1]].label,
                 fontSize: 9,
                 maxTicksLimit: 20,
                 fontColor: '#808080',
                 maxRotation: 0,
-                minRotation: 0,
-                callback: label => {
-                  return label.split('/')[1]
-                }
+                minRotation: 0
               }
             },
             {
               id: 'month',
+              type: 'time',
               stacked: true,
+              time: {
+                unit: 'month',
+                unitStepSize: 1,
+                displayFormats: {
+                  month: 'YYYY年M月'
+                },
+                round: 'day'
+              },
               gridLines: {
                 drawOnChartArea: false,
                 drawTicks: true,
@@ -191,21 +226,15 @@ export default {
                 tickMarkLength: 10
               },
               ticks: {
+                min: this.chartData[this.graphRange[0]].label,
+                max: this.chartData[this.graphRange[1]].label,
                 fontSize: 11,
                 fontColor: '#808080',
                 padding: 3,
                 fontStyle: 'bold',
                 gridLines: {
                   display: true
-                },
-                callback: label => {
-                  const month = label.split(/\s+/)[0]
-                  return month
                 }
-              },
-              type: 'time',
-              time: {
-                unit: 'month'
               }
             }
           ],
@@ -229,6 +258,9 @@ export default {
     }
   },
   methods: {
+    sliderUpdate(sliderValue) {
+      this.graphRange = sliderValue
+    },
     formatDayBeforeRatio(dayBeforeRatio) {
       const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
       switch (Math.sign(dayBeforeRatio)) {
