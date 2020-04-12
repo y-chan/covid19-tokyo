@@ -149,6 +149,10 @@ export default {
       })
 
       translatedAges.forEach(v => {
+        if (!excludeItems[v]) {
+          return
+        }
+
         excludeItems[v].forEach(item => {
           filterItems.unshift(item)
         })
