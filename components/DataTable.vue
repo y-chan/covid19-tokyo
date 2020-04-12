@@ -140,8 +140,6 @@ export default {
         }
       })
 
-      console.log(translatedAges, excludeItems)
-
       filterItems.sort((a, b) => {
         if (b[index] < a[index]) {
           return 1
@@ -151,7 +149,6 @@ export default {
       })
 
       translatedAges.forEach(v => {
-        console.log(v)
         excludeItems[v].forEach(item => {
           filterItems.unshift(item)
         })
