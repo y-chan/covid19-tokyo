@@ -2,15 +2,15 @@
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:button>
       <ul :class="$style.GraphDesc">
-        <i18n tag="li" path="（注）病床数は{data}の第一・二種感染症病床の合計">
+        <i18n tag="li" path="（注）病床数は{data}の入院可能病床数">
           <a
             :class="$style.GraphLink"
-            href="https://www.mhlw.go.jp/bunya/kenkou/kekkaku-kansenshou15/02-02.html"
+            href="http://www.pref.nara.jp/secure/224794/64_4.pdf"
             target="_blank"
             rel="noopener"
             place="data"
           >
-            {{ $t('感染症指定医療機関') }}
+            「新型コロナウイルス感染症への県の対応について」
           </a>
         </i18n>
       </ul>
