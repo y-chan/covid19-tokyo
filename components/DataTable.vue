@@ -78,7 +78,7 @@
 import DataView from '@/components/DataView.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
-const excludeAges = ['就学児', '未就学児', '調査中']
+const excludeAges = ['就学児', '未就学児']
 
 export default {
   components: { DataView, DataViewBasicInfoPanel },
