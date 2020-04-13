@@ -12,7 +12,7 @@
 	},
 	{
 	    "date": "2020/03/16",
-	    "url": "https://www.city.nara.lg.jp/site/coronavirus/",
+	    "url" : "https://www.city.nara.lg.jp/site/coronavirus/",
 	    "text": "新型コロナウイルスに関する情報まとめ"
 	}
     ]
