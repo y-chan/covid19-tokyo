@@ -50,7 +50,8 @@
 </template>
 
 <script>
-import mainSummary from '@/data/main_summary.json'
+/* import mainSummary from '@/data/main_summary.json' */
+import Data from '@/data/data.json'
 /* import inspectionsSummary from '@/data/inspections_summary.json'
 import patients from '@/data/patients.json' */
 /* import MetroData from '@/data/metro.json'
@@ -94,7 +95,8 @@ export default {
       case 'details-of-confirmed-cases':
         title = this.$t('入院患者数の状況')
         // updatedAt = inspectionsSummary.last_update
-        updatedAt = mainSummary.last_update
+        // updatedAt = mainSummary.last_update
+        updatedAt = Data.main_summary.date
         break
       /* case 'details-of-tested-cases':
         title = this.$t('検査実施状況')
