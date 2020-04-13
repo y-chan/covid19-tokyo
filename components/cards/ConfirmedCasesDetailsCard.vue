@@ -3,7 +3,7 @@
     <confirmed-cases-card
       :title="$t('入院患者数の状況')"
       :title-id="'details-of-confirmed-cases'"
-      :date="mainSummary.last_update"
+      :date="Data.main_summary.date"
       :url="'http://www.pref.nara.jp/'"
     >
       <confirmed-cases-table
@@ -15,7 +15,8 @@
 </template>
 
 <script>
-import mainSummary from '@/data/main_summary.json'
+// import mainSummary from '@/data/main_summary.json'
+import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import ConfirmedCasesCard from '@/components/ConfirmedCasesCard.vue'
 import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
@@ -27,10 +28,11 @@ export default {
   },
   data() {
     // 検査陽性者の状況
-    const confirmedCases = formatConfirmedCases(mainSummary)
+    const confirmedCases = formatConfirmedCases(Data.main_summary)
 
+    // mainSummary,
     const data = {
-      mainSummary,
+      Data,
       confirmedCases
     }
     return data
