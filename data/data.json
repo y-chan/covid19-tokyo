@@ -659,32 +659,38 @@
 	},
     "main_summary": {
         "date": "2020/04/12 20:00",
-        "attr": "陽性患者数",
-        "value": 46,
-        "children": [
+	"attr": "検査実施人数",
+	"value": 0,
+	"children": [
             {
-                "attr": "入院／入院調整中",
-                "value":31,
-                "children": [
+		"attr": "陽性患者数",
+		"value": 49,     
+		"children": [
                     {
-                        "attr": "無症状",
-                        "value": 3
+			"attr": "入院患者数",
+			"value": 32,
+			"children": [
+                            {
+				"attr": "症状のない方",
+				"value": 3
+                            },
+                            {
+				"attr": "症状のある方",
+				"value": 28
+                            }
+			]
                     },
                     {
-                        "attr": "患者",
-                        "value": 28
+			"attr": "退院した方",
+			"value": 17
+                    },
+                    {
+			"attr": "亡くなられた方",
+			"value": 0
                     }
-                ]
-            },
-            {
-                "attr": "退院",
-                "value": 15
-            },
-            {
-                "attr": "死亡",
-                "value": 0
+		]
             }
-        ]
+	]
     },
     "lastUpdate": "2020/04/12 20:00"
 }
