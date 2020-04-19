@@ -93,7 +93,7 @@ export default {
     let title, updatedAt
     switch (this.$route.params.card) {
       case 'details-of-confirmed-cases':
-        title = this.$t('入院患者数の状況')
+        title = this.$t('入院者数の状況')
         // updatedAt = inspectionsSummary.last_update
         // updatedAt = mainSummary.last_update
         updatedAt = Data.main_summary.date
@@ -104,11 +104,11 @@ export default {
         break */
       /*
       case 'number-of-confirmed-cases':
-        title = this.$t('陽性患者数')
+        title = this.$t('陽性者数')
         updatedAt = patients.last_update
         break
       case 'attributes-of-confirmed-cases':
-        title = this.$t('陽性患者の属性')
+        title = this.$t('陽性者の属性')
         updatedAt = patients.last_update
         break
       case 'number-of-tested':
@@ -145,7 +145,7 @@ export default {
         updatedAt = ChiyodaData.date
         break */
       case 'patients-and-sickbeds':
-        title = this.$t('入院患者数と残り病床数')
+        title = this.$t('入院者数と残り病床数')
         updatedAt = sickbedsSummary.last_update
         break
     }
