@@ -180,7 +180,7 @@
       </i18n>
     </TextCard>
 
-    <TextCard title="お問い合わせ先">
+    <TextCard title="$t('お問い合わせ先')">
       <li>
         「
         <a
