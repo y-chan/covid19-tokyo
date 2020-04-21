@@ -394,7 +394,7 @@
   "項番": "S/N",
   "就学児": "school child",
   "調査中": "Investigating",
-  "当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、大阪府が{codeForOSAKA}の協力を得て開設したものです。": "This website has been set up by Osaka Prefecture in cooperation with {codeForOSAKA} in order to provide the latest information about the novel coronavirus disease (COVID-19)",
+  "当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、大阪府が{codeForOSAKA}の協力を得て開設したものです。": "This website has been set up by Osaka Prefecture in cooperation with {codeForOSAKA} in order to provide the latest information about the novel coronavirus disease (COVID-19).",
   "大阪府による公式情報と客観的な数値をわかりやすく伝えることで、大阪府にお住まいの方や、大阪府内に拠点を持つ企業の方、大阪府を訪れる方が、現状を把握して適切な対策を取れるようにすることを目的としています。": "This site aims to allow Osaka residents, Osaka -based companies and visitors to Osaka to grasp the current situation and take appropriate measures, by providing official information and objective data from the Osaka Prefectural Government in an easy-to-understand way.",
   "Google Chrome 最新版 (Windows 10以上)": "Google Chrome (Latest version, Windows 10 or later)",
   "Safari (macOS) 最新版": "Safari (macOS) Latest version",
@@ -407,8 +407,10 @@
   "本サイトのソースコードはMITライセンスで公開されており、誰でも自由に利用することができます。詳しくは、{githubRepo}をご確認ください。": "The source code of this site is MIT licensed code and can be used by anyone for free. For details please check the {githubRepo}.",
   "新型コロナウイルス感染症の発生に伴う電話相談窓口について": "Call center for the novel coronavirus consultation",
   "大阪府では、府民からの健康相談に応えるため、専用の府民相談窓口を設置しています。": "Osaka Prefecture has set up a dedicated consultation desk to respond to questions on health from residents. ",
-  "また、新型コロナウイルス感染症に感染が疑われる方を対象に、府内各保健所に、新型コロナ受診相談センター（帰国者・接触者相談センター）を設置しています。詳しくは上記リンクより案内をご覧下さい。": "Osaka Prefecture has also set up a novel coronavirus consultation center (returnees and potential contacts consultation center) at each public health center within the prefecture. Please click the above link for detailed guide.",
+  "また、新型コロナウイルス感染症に感染が疑われる方を対象に、府内各保健所に、新型コロナ受診相談センター（帰国者・接触者相談センター）を設置しています。詳しくは上記リンクより案内をご覧下さい。": "It has also set up a novel coronavirus consultation center (returnees and potential contacts consultation center) at each public health center within the prefecture. Please click the above link for detailed guide.",
   "本サイトの構築に関するお問い合わせについて": "Inquiries about this website construction",
   "本サイトの構築に関することについては、大阪府総務部スマートシティ戦略準備室にお問い合わせください。": "If you have any questions about the construction of this website, please contact:\n\nGeneral Affairs Division, \nDepartment of Smart City Strategy,\nOsaka Prefectural Government",
-  "※軽症・無症状には症状調査中を含む": "* The number of those who have mild or no symptoms includes cases under research"
+  "※軽症・無症状には症状調査中を含む": "* The number of those who have mild or no symptoms includes cases under research",
+  "お問い合わせ先": "Contact information",
+  "「{aboutHP}」": "”{aboutHP}”"
 }
