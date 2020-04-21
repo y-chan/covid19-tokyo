@@ -180,17 +180,21 @@
       </i18n>
     </TextCard>
 
-    <TextCard title="$t('お問い合わせ先')">
+    <TextCard :title="$t('お問い合わせ先')">
       <li>
-        「
-        <a
-          href="http://www.pref.osaka.lg.jp/iryo/osakakansensho/corona-denwa.html"
-          target="_blank"
-          rel="noopener"
-        >
-          {{ $t('新型コロナウイルス感染症の発生に伴う電話相談窓口について') }}
-        </a>
-        」
+        <i18n path="「{aboutHP}」">
+          <template v-slot:aboutHP>
+            <a
+              href="http://www.pref.osaka.lg.jp/iryo/osakakansensho/corona-denwa.html"
+              target="_blank"
+              rel="noopener"
+            >
+              {{
+                $t('新型コロナウイルス感染症の発生に伴う電話相談窓口について')
+              }}
+            </a>
+          </template>
+        </i18n>
       </li>
       {{
         $t(
