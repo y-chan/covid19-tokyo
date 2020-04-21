@@ -5,94 +5,62 @@
       ariaLabel(検査実施人数, 陽性物数, 入院中, 軽症中等症, 重症, 死亡, 退院)
     "
   >
-    <li :class="[$style.box, $style.boxTesting]">
-      <div :class="[$style.pillar, $style.pillarTesting]">
-        <div :class="$style.content">
-          <!-- eslint-disable vue/no-v-html-->
-          <span v-html="$t('検査実施<br />件数')" />
-          <!-- eslint-enable vue/no-v-html-->
-          <span>
-            <strong>{{ 検査実施人数 }}</strong>
-            <span :class="$style.unit">{{ $t('件.tested') }}</span>
-          </span>
-        </div>
+    <li>
+      <div :class="[$style.row, $style['is-black']]">
+        <span v-text="$t('検査実施<br />件数')">)"></span>
+        <span>{{ 検査実施人数 }}{{ $t('件.tested') }}</span>
       </div>
     </li>
-    <li :class="[$style.box, $style.tall, $style.parent, $style.confirmed]">
-      <div :class="$style.pillar">
-        <div :class="$style.content">
-          <span>
-            {{ $t('陽性者数') }}
-            <br />({{ $t('累計') }})
-          </span>
-          <span>
-            <strong>{{ 陽性物数 }}</strong>
-            <span :class="$style.unit">{{ $t('人') }}</span>
-          </span>
-        </div>
+    <li>
+      <div :class="$style.row">
+        <span>{{ $t('陽性者数（累積）') }}</span>
+        <span>{{ 陽性物数 }}{{ $t('人') }}</span>
       </div>
-      <ul :class="$style.group">
-        <li :class="[$style.box, $style.parent, $style.hospitalized]">
-          <div :class="$style.pillar">
-            <div :class="$style.content">
-              <!-- eslint-disable vue/no-v-html-->
-              <span v-html="$t('入院・<br />入院調整中')" />
-              <!-- eslint-enable vue/no-v-html-->
-              <span>
-                <strong>{{ 入院中 }}</strong>
-                <span :class="$style.unit">{{ $t('人') }}</span>
-              </span>
-            </div>
+      <ul :class="$style.container">
+        <li>
+          <div :class="[$style.row, $style['is-positive']]">
+            <span>{{ $t('現在陽性者数') }}</span>
+            <span>{{ 現在陽性者数 }}{{ $t('人') }}</span>
           </div>
-          <ul :class="$style.group">
-            <li :class="[$style.box, $style.short, $style.minor]">
-              <div :class="$style.pillar">
-                <div :class="$style.content">
-                  <!-- eslint-disable vue/no-v-html-->
-                  <span v-html="$t('軽症・<br />無症状')" />
-                  <!-- eslint-enable vue/no-v-html-->
-                  <span>
-                    <strong>{{ 軽症中等症 }}</strong>
-                    <span :class="$style.unit">{{ $t('人') }}</span>
-                  </span>
-                </div>
+          <ul :class="$style.container">
+            <li>
+              <div :class="[$style.row, $style['is-gray']]">
+                <span v-text="$t('入院・<br />入院調整中')" />
+                <span>{{ 入院中 }}{{ $t('人') }}</span>
+              </div>
+              <ul :class="$style.container">
+                <li>
+                  <div :class="[$style.row, $style['is-gray']]">
+                    <span>{{ $t('重症') }}</span>
+                    <span>{{ 重症 }}{{ $t('人') }}</span>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div :class="[$style.row, $style['is-gray']]">
+                <span>{{ $t('自宅療養') }}</span>
+                <span>{{ 自宅療養 }}{{ $t('人') }}</span>
               </div>
             </li>
-            <li :class="[$style.box, $style.short, $style.severe]">
-              <div :class="$style.pillar">
-                <div :class="$style.content">
-                  <span>{{ $t('重症') }}</span>
-                  <span>
-                    <strong>{{ 重症 }}</strong>
-                    <span :class="$style.unit">{{ $t('人') }}</span>
-                  </span>
-                </div>
+            <li>
+              <div :class="[$style.row, $style['is-gray']]">
+                <span>{{ $t('宿泊療養') }}</span>
+                <span>{{ 宿泊療養 }}{{ $t('人') }}</span>
               </div>
             </li>
           </ul>
         </li>
-        <li :class="[$style.box, $style.deceased]">
-          <div :class="$style.pillar">
-            <div :class="$style.content">
-              <span>{{ $t('死亡') }}</span>
-              <span>
-                <strong>{{ 死亡 }}</strong>
-                <span :class="$style.unit">{{ $t('人') }}</span>
-              </span>
-            </div>
+        <li>
+          <div :class="[$style.row, $style['is-deceased']]">
+            <span>{{ $t('死亡') }}</span>
+            <span>{{ 死亡 }}{{ $t('人') }}</span>
           </div>
         </li>
-        <li :class="[$style.box, $style.recovered]">
-          <div :class="$style.pillar">
-            <div :class="$style.content">
-              <!-- eslint-disable vue/no-v-html-->
-              <span v-html="$t('陰性確認済<br />（退院者累計）')" />
-              <!-- eslint-enable vue/no-v-html-->
-              <span>
-                <strong>{{ 退院 }}</strong>
-                <span :class="$style.unit">{{ $t('人') }}</span>
-              </span>
-            </div>
+        <li>
+          <div :class="$style.row">
+            <span>{{ $t('陰性確認済（退院者累計数）') }}</span>
+            <span>{{ 退院 }}{{ $t('人') }}</span>
           </div>
         </li>
       </ul>
@@ -131,33 +99,21 @@ export default {
     退院: {
       type: Number,
       required: true
+    },
+    現在陽性者数: {
+      type: Number,
+      default: 0
+    },
+    自宅療養: {
+      type: Number,
+      default: 0
+    },
+    宿泊療養: {
+      type: Number,
+      default: 0
     }
   },
   methods: {
-    /** 桁数に応じて位置の調整をする */
-    getAdjustX(input) {
-      const length = input.toString(10).length
-      switch (length) {
-        case 1: {
-          return 3
-        }
-        case 2: {
-          return 0
-        }
-        case 3: {
-          return -3
-        }
-        case 4: {
-          return -8
-        }
-        case 5: {
-          return -11
-        }
-        default: {
-          return 0
-        }
-      }
-    },
     /** グラフ内容がわかる支援技術用テキストの中身を取得する **/
     ariaLabel(
       inspected,
@@ -186,285 +142,69 @@ export default {
 </script>
 
 <style lang="scss" module>
-$default-bdw: 3px;
-$default-boxh: 150px;
-$default-boxdiff: 35px;
-
-// .container > .box > (.group > .box > ...) .pillar > .content
+$rowSidePadding: 1.5em;
+$rowNestPadding: 2em;
 
 .container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  box-sizing: border-box;
-  color: $green-1;
-  line-height: 1.35;
-
-  * {
-    box-sizing: border-box;
-  }
-  // override default styles
-  padding-left: 0 !important;
-
+  &,
   ul {
-    padding-left: 0;
+    padding: 0;
+  }
+
+  &,
+  li {
+    list-style: none;
+  }
+
+  > * + *,
+  .container {
+    margin-top: 4px;
+  }
+
+  // ネスト時のスタイルを吐き出す
+  @for $i from 1 to 4 {
+    $selector: '.container';
+
+    @for $j from 1 to $i {
+      $selector: $selector + ' .container';
+    }
+
+    $selector: $selector + ' .row';
+
+    #{$selector} {
+      padding-left: $rowNestPadding * $i + $rowSidePadding;
+    }
   }
 }
 
-.pillar {
+.row {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  flex: 0 0 auto;
-  text-align: center;
-  width: 100%;
-  border: $default-bdw solid $green-1;
-}
-
-.group {
-  display: flex;
-  flex: 0 0 auto;
-  padding-left: 0;
-  padding-top: $default-bdw;
-  border-top: $default-bdw solid $green-1;
-  border-left: $default-bdw solid $green-1;
-}
-
-.box {
-  display: flex;
-
-  &.parent {
-    border-top: $default-bdw solid $green-1;
-    border-left: $default-bdw solid $green-1;
-    position: relative;
-    padding-top: $default-boxdiff - $default-bdw * 2;
-
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      top: -1px;
-      right: 0;
-      height: $default-boxdiff - $default-bdw - 2;
-      border-left: $default-bdw solid $green-1;
-    }
-
-    > .pillar {
-      margin-top: -($default-boxdiff - $default-bdw * 2);
-      border-top: none;
-      border-right: none;
-      border-left: none;
-    }
-  }
-
-  &.confirmed {
-    width: 100%;
-
-    > .pillar {
-      // [6列] 1/6
-      width: calc((100% + #{$default-bdw} * 2) / 6 - #{$default-bdw} * 3);
-    }
-
-    > .group {
-      // [6列] 5/6
-      width: calc((100% + #{$default-bdw} * 2) / 6 * 5 + #{$default-bdw});
-    }
-  }
-
-  &.hospitalized {
-    margin-left: $default-bdw;
-    // [5列] 3/5
-    width: calc(100% / 5 * 3 - #{$default-bdw});
-
-    > .pillar {
-      // [3列] 1/3
-      width: calc((100% + #{$default-bdw} * 2) / 3 - #{$default-bdw} * 3);
-    }
-
-    > .group {
-      // [3列] 2/3
-      width: calc((100% + #{$default-bdw} * 2) / 3 * 2 + #{$default-bdw});
-    }
-  }
-
-  &.minor,
-  &.severe {
-    margin-left: $default-bdw;
-    // [2列] 1/2
-    width: calc(100% / 2 - #{$default-bdw});
-  }
-
-  &.deceased,
-  &.recovered {
-    margin-left: $default-bdw;
-    // [5列] 1/5
-    width: calc(100% / 5 - #{$default-bdw});
-  }
-}
-
-.content {
-  min-height: $default-boxh;
-  padding: 10px 2px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: space-between;
 
-  > span {
-    display: block;
-    width: 100%;
+  padding: 0.25em $rowSidePadding;
 
-    @include font-size(16);
+  font-weight: bold;
 
-    &:last-child {
-      margin-top: 0.1em;
-    }
+  border: solid 2px $green-1;
 
-    &:not(:last-child) {
-      word-break: break-all;
-    }
-  }
-  span strong {
-    @include font-size(18);
+  color: $green-1;
+
+  &.is-black {
+    border-color: #333;
+    color: #4d4d4d;
   }
 
-  span.unit {
-    @include font-size(16);
-  }
-}
-
-@function px2vw($px, $vw: 0) {
-  @if $vw > 0 {
-    @return ceil($px / $vw * 100000vw) / 1000;
-  } @else {
-    @return $px * 1px;
-  }
-}
-
-@mixin override($vw, $bdw, $fz, $boxh, $boxdiff) {
-  .pillar {
-    border-width: px2vw($bdw, $vw);
+  &.is-deceased {
+    background: rgba(#333, 30%);
   }
 
-  .group {
-    padding-top: px2vw($bdw, $vw);
-    border-top-width: px2vw($bdw, $vw);
-    border-left-width: px2vw($bdw, $vw);
+  &.is-positive {
+    background: rgba($green-1, 20%);
   }
 
-  .content {
-    > span {
-      @include font-size($fz);
-    }
-    span strong {
-      @include font-size($fz + 2);
-    }
-
-    span.unit {
-      @include font-size($fz);
-    }
+  &.is-gray {
+    background: rgba(#333, 10%);
   }
-
-  .box {
-    &.parent {
-      border-top-width: px2vw($bdw, $vw);
-      border-left-width: px2vw($bdw, $vw);
-      padding-top: px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2;
-
-      &::after {
-        height: px2vw($boxdiff - $bdw, $vw);
-        border-left-width: px2vw($bdw, $vw);
-      }
-
-      > .pillar {
-        margin-top: px2vw((-($boxdiff - $bdw * 2)), $vw);
-      }
-    }
-
-    &.confirmed {
-      > .pillar {
-        width: calc(
-          (100% + #{px2vw($bdw, $vw)} * 2) / 6 - #{px2vw($bdw, $vw)} * 3
-        );
-      }
-
-      > .group {
-        width: calc(
-          (100% + #{px2vw($bdw, $vw)} * 2) / 6 * 5 + #{px2vw($bdw, $vw)}
-        );
-      }
-    }
-
-    &.hospitalized {
-      margin-left: px2vw($bdw, $vw);
-      width: calc(100% / 5 * 3 - #{px2vw($bdw, $vw)});
-
-      > .pillar {
-        width: calc(
-          (100% + #{px2vw($bdw, $vw)} * 2) / 3 - #{px2vw($bdw, $vw)} * 3
-        );
-      }
-
-      > .group {
-        width: calc(
-          (100% + #{px2vw($bdw, $vw)} * 2) / 3 * 2 + #{px2vw($bdw, $vw)}
-        );
-      }
-    }
-
-    &.minor,
-    &.severe {
-      margin-left: px2vw($bdw, $vw);
-      width: calc(100% / 2 - #{px2vw($bdw, $vw)});
-    }
-
-    &.deceased,
-    &.recovered {
-      margin-left: px2vw($bdw, $vw);
-      width: calc(100% / 5 - #{px2vw($bdw, $vw)});
-    }
-  }
-}
-
-.boxTesting {
-  margin-right: $default-bdw;
-}
-
-.pillarTesting {
-  border-color: #333;
-  color: #4d4d4d;
-}
-
-// variables.scss Breakpoints: huge (1440)
-@include lessThan(1440) {
-  @include override(1440, 3, 15, 150, 35);
-}
-
-// Vuetify Breakpoints: Large (1264)
-@include lessThan(1263) {
-  @include override(1263, 2, 13, 107, 24);
-}
-
-// variables.scss Breakpoints: large (1170)
-@include lessThan(1170) {
-  @include override(1170, 2, 13, 107, 24);
-}
-
-// Vuetify Breakpoints: Small (960)
-@include lessThan(959) {
-  @include override(960, 4, 14, 180, 40);
-}
-
-@include lessThan(767) {
-  @include override(960, 3, 14, 180, 40);
-}
-
-// Vuetify Breakpoints: Extra Small (600)
-@include lessThan(600) {
-  @include override(600, 3, 14, 150, 35);
-}
-
-@include lessThan(420) {
-  @include override(600, 2, 12, 150, 35);
 }
 </style>
