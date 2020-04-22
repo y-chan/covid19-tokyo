@@ -64,6 +64,18 @@
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
+        <time-stacked-bar-chart2
+          title="感染経路不明者"
+          :title-id="'number-of-transmission-route'"
+          :chart-id="'time-stacked-bar-chart2-transmission-route'"
+          :chart-data="transmissionRouteGraph"
+          :date="Data.transmission_route_summary.date"
+          :items="transmissionRouteItems"
+          :labels="transmissionRouteLabels"
+          :unit="'人'"
+        />
+      </v-col>
+      <v-col cols="12" md="6" class="DataCard">
         <time-stacked-bar-chart
           :title="$t('新型コロナ受診相談センターへの相談件数')"
           :title-id="'number-of-contacts２'"
@@ -93,6 +105,7 @@
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
+import TimeStackedBarChart2 from '@/components/TimeStackedBarChart2.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
@@ -113,7 +126,8 @@ export default {
     DataTable,
     SvgCard,
     ConfirmedCasesTable,
-    TimeStackedBarChart
+    TimeStackedBarChart,
+    TimeStackedBarChart2
   },
   data() {
     // 感染者数グラフ
@@ -124,6 +138,13 @@ export default {
     const inspectionsGraph = formatGraph(Data.inspections_summary.data)
     // 検査陽性者の状況
     const confirmedCases = formatConfirmedCases(Data.main_summary)
+    // 感染経路不明者
+    const transmissionRouteGraph = [
+      Data.transmission_route_summary.data['感染経路不明者'],
+      Data.transmission_route_summary.data['感染経路明確者']
+    ]
+    const transmissionRouteItems = ['感染経路不明者', '感染経路明確者']
+    const transmissionRouteLabels = Data.transmission_route_summary.labels
     // 府民向け相談窓口相談件数
     const contactsGraph = formatGraph(Data.contacts1_summary.data)
     // 新型コロナ受診相談センターへの相談件数
@@ -176,6 +197,9 @@ export default {
       patientsGraph,
       inspectionsGraph,
       confirmedCases,
+      transmissionRouteGraph,
+      transmissionRouteItems,
+      transmissionRouteLabels,
       contactsGraph,
       contacts2Graph,
       contacts2Items,
