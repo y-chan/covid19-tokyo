@@ -65,7 +65,7 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-stacked-bar-chart2
-          title="感染経路不明者"
+          :title="$t('感染経路不明者（リンク不明者）')"
           :title-id="'number-of-transmission-route'"
           :chart-id="'time-stacked-bar-chart2-transmission-route'"
           :chart-data="transmissionRouteGraph"
@@ -143,7 +143,10 @@ export default {
       Data.transmission_route_summary.data['感染経路不明者'],
       Data.transmission_route_summary.data['感染経路明確者']
     ]
-    const transmissionRouteItems = ['感染経路不明者', '感染経路明確者']
+    const transmissionRouteItems = [
+      this.$t('リンク不明'),
+      this.$t('リンク確認')
+    ]
     const transmissionRouteLabels = Data.transmission_route_summary.labels
     // 府民向け相談窓口相談件数
     const contactsGraph = formatGraph(Data.contacts1_summary.data)
