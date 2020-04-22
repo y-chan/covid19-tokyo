@@ -40,6 +40,7 @@
           :chart-option="{}"
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
+          :unit="$t('人')"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -72,7 +73,7 @@
           :date="Data.transmission_route_summary.date"
           :items="transmissionRouteItems"
           :labels="transmissionRouteLabels"
-          :unit="'人'"
+          :unit="$t('人')"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
