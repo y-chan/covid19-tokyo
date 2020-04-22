@@ -9,6 +9,9 @@
       :options="options"
       :height="240"
     />
+    <div class="note">
+      {{ $t('※報道提供における本日判明数での集計') }}
+    </div>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel1
         :l-text="displayInfo.lText"
@@ -19,6 +22,14 @@
     </template>
   </data-view>
 </template>
+
+<style>
+.note {
+  padding: 8px;
+  font-size: 12px;
+  color: #808080;
+}
+</style>
 
 <script>
 import DataView from '@/components/DataView.vue'
@@ -88,8 +99,12 @@ export default {
 
         return {
           lText: lastNum.toLocaleString(),
-          sText1: `感染経路不明率：${lastPercent.toLocaleString()} %`,
-          sText2: `前日比：${lastRatio}`,
+          sText1: `${this.$t('リンク不明率：{rate} %', {
+            rate: lastPercent.toLocaleString()
+          })}`,
+          sText2: `${this.$t('前日比：{dif}', {
+            dif: lastRatio
+          })}`,
           unit: this.unit
         }
       }
@@ -108,8 +123,12 @@ export default {
 
       return {
         lText: lastSumNum.toLocaleString(),
-        sText1: `感染経路不明率：${lastSumPercent.toLocaleString()} %`,
-        sText2: `前日比：${lastSumRatio}`,
+        sText1: `${this.$t('リンク不明率：{rate} %', {
+          rate: lastSumPercent.toLocaleString()
+        })}`,
+        sText2: `${this.$t('前日比：{dif}', {
+          dif: lastSumRatio
+        })}`,
         unit: this.unit
       }
     },
@@ -155,14 +174,18 @@ export default {
             label: tooltipItem => {
               const labelText =
                 this.dataKind === 'transition'
-                  ? `${sumArray[tooltipItem.index]}${unit}（感染経路不明者: ${
-                      data[0][tooltipItem.index]
-                    }/感染経路明確者: ${data[1][tooltipItem.index]}）`
+                  ? `${sumArray[tooltipItem.index]}${unit}（${this.$t(
+                      'リンク不明'
+                    )}: ${data[0][tooltipItem.index]}/${this.$t(
+                      'リンク確認'
+                    )}: ${data[1][tooltipItem.index]}）`
                   : `${
                       cumulativeSumArray[tooltipItem.index]
-                    }${unit}（（感染経路不明者: ${
+                    }${unit}（（${this.$t('リンク不明')}: ${
                       cumulativeData[0][tooltipItem.index]
-                    }/感染経路明確者: ${cumulativeData[1][tooltipItem.index]}）`
+                    }/${this.$t('リンク確認')}: ${
+                      cumulativeData[1][tooltipItem.index]
+                    }）`
               return labelText
             },
             title(tooltipItem, data) {
