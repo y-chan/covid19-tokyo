@@ -161,7 +161,7 @@ $rowNestPadding: 2em;
     margin-top: 4px;
   }
 
-  // ネスト時のスタイルを吐き出す
+  // ネスト用のスタイルを吐き出す
   @for $i from 1 to 4 {
     $selector: '.container';
 
