@@ -8,31 +8,33 @@
     <li>
       <div :class="[$style.row, $style['is-black']]">
         <span v-text="$t('検査実施<br />件数')">)"></span>
-        <span>{{ 検査実施人数 }}{{ $t('件.tested') }}</span>
+        <span :class="$style.value"
+          >{{ 検査実施人数 }}{{ $t('件.tested') }}</span
+        >
       </div>
     </li>
     <li>
       <div :class="$style.row">
         <span>{{ $t('陽性者数（累積）') }}</span>
-        <span>{{ 陽性物数 }}{{ $t('人') }}</span>
+        <span :class="$style.value">{{ 陽性物数 }}{{ $t('人') }}</span>
       </div>
       <ul :class="$style.container">
         <li>
           <div :class="[$style.row, $style['is-positive']]">
             <span>{{ $t('現在陽性者数') }}</span>
-            <span>{{ 現在陽性者数 }}{{ $t('人') }}</span>
+            <span :class="$style.value">{{ 現在陽性者数 }}{{ $t('人') }}</span>
           </div>
           <ul :class="$style.container">
             <li>
               <div :class="[$style.row, $style['is-gray']]">
                 <span v-text="$t('入院・<br />入院調整中')" />
-                <span>{{ 入院中 }}{{ $t('人') }}</span>
+                <span :class="$style.value">{{ 入院中 }}{{ $t('人') }}</span>
               </div>
               <ul :class="$style.container">
                 <li>
                   <div :class="[$style.row, $style['is-gray']]">
                     <span>{{ $t('重症') }}</span>
-                    <span>{{ 重症 }}{{ $t('人') }}</span>
+                    <span :class="$style.value">{{ 重症 }}{{ $t('人') }}</span>
                   </div>
                 </li>
               </ul>
@@ -40,13 +42,13 @@
             <li>
               <div :class="[$style.row, $style['is-gray']]">
                 <span>{{ $t('自宅療養') }}</span>
-                <span>{{ 自宅療養 }}{{ $t('人') }}</span>
+                <span :class="$style.value">{{ 自宅療養 }}{{ $t('人') }}</span>
               </div>
             </li>
             <li>
               <div :class="[$style.row, $style['is-gray']]">
                 <span>{{ $t('宿泊療養') }}</span>
-                <span>{{ 宿泊療養 }}{{ $t('人') }}</span>
+                <span :class="$style.value">{{ 宿泊療養 }}{{ $t('人') }}</span>
               </div>
             </li>
           </ul>
@@ -54,13 +56,13 @@
         <li>
           <div :class="[$style.row, $style['is-deceased']]">
             <span>{{ $t('死亡') }}</span>
-            <span>{{ 死亡 }}{{ $t('人') }}</span>
+            <span :class="$style.value">{{ 死亡 }}{{ $t('人') }}</span>
           </div>
         </li>
         <li>
           <div :class="$style.row">
             <span>{{ $t('陰性確認済（退院者累計数）') }}</span>
-            <span>{{ 退院 }}{{ $t('人') }}</span>
+            <span :class="$style.value">{{ 退院 }}{{ $t('人') }}</span>
           </div>
         </li>
       </ul>
@@ -148,7 +150,7 @@ $rowNestPadding: 2em;
 .container {
   &,
   ul {
-    padding: 0;
+    padding-left: 0 !important;
   }
 
   &,
@@ -206,5 +208,11 @@ $rowNestPadding: 2em;
   &.is-gray {
     background: rgba(#333, 10%);
   }
+}
+
+.value {
+  flex: none;
+
+  margin-left: 1em;
 }
 </style>
