@@ -104,15 +104,15 @@ export default {
     },
     現在陽性者数: {
       type: Number,
-      default: 0
+      required: true
     },
     自宅療養: {
       type: Number,
-      default: 0
+      required: true
     },
     宿泊療養: {
       type: Number,
-      default: 0
+      required: true
     }
   },
   methods: {
