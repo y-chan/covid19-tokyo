@@ -7,7 +7,7 @@
   >
     <li>
       <div :class="[$style.row, $style['is-black']]">
-        <span v-text="$t('検査実施<br />件数')">)"></span>
+        <span v-text="$t('検査実施件数')">)"></span>
         <span :class="$style.value"
           >{{ 検査実施人数 }}{{ $t('件.tested') }}</span
         >
@@ -27,7 +27,7 @@
           <ul :class="$style.container">
             <li>
               <div :class="[$style.row, $style['is-gray']]">
-                <span v-text="$t('入院・<br />入院調整中')" />
+                <span v-text="$t('入院・入院調整中')" />
                 <span :class="$style.value">{{ 入院中 }}{{ $t('人') }}</span>
               </div>
               <ul :class="$style.container">
