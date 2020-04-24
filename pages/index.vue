@@ -45,7 +45,7 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          :title="$t('陰性確認済（退院者累計）')"
+          :title="$t('退院・解除済累計')"
           :title-id="'number-of-treated'"
           :chart-id="'time-bar-chart-inspections'"
           :chart-data="treatedGraph"
