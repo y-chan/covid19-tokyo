@@ -5,7 +5,12 @@
       <small class="DataView-DataInfo-summary-unit">{{ unit }}</small>
     </span>
     <br />
-    <small class="DataView-DataInfo-date">{{ sText }}</small>
+    <small
+      v-for="(sText, index) in sTextList"
+      :key="index"
+      class="DataView-DataInfo-date"
+      >{{ sText }}</small
+    >
   </div>
 </template>
 
@@ -44,7 +49,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 @Component
 export default class DataViewBasicInfoPanel extends Vue {
   @Prop() private lText!: string
-  @Prop() private sText!: string
+  @Prop() private sTextList!: string[]
   @Prop() private unit!: string
 }
 </script>
