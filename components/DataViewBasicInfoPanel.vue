@@ -24,6 +24,7 @@
 
     &-summary {
       display: inline-block;
+      color: $gray-2;
       font-family: Hiragino Sans;
       font-style: normal;
       font-size: 30px;
@@ -33,10 +34,9 @@
       }
     }
     &-date {
-      white-space: wrap;
-      display: inline-block;
+      display: block;
       font-size: 12px;
-      line-height: 12px;
+      line-height: 1.5;
       color: $gray-3;
     }
   }
