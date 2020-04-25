@@ -1,5 +1,12 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
+  <data-view
+    :title="title"
+    :title-id="titleId"
+    :date="date"
+    :url="url"
+    :source-text="sourceText"
+    :source-url="sourceUrl"
+  >
     <template v-slot:button>
       <span />
     </template>
@@ -98,6 +105,16 @@ export default {
       default: () => {}
     },
     url: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    sourceText: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    sourceUrl: {
       type: String,
       required: false,
       default: ''

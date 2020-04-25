@@ -8,6 +8,8 @@
       :unit="$t('床')"
       :info="$t('総病床数')"
       :url="'http://www.pref.nara.jp/'"
+      :source-text="sourceText"
+      :source-url="sourceUrl"
     />
   </v-col>
 </template>
@@ -20,6 +22,18 @@ import formatVariableGraph from '@/utils/formatVariableGraph'
 export default {
   components: {
     CircleChart
+  },
+  props: {
+    sourceText: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    sourceUrl: {
+      type: String,
+      required: false,
+      default: ''
+    }
   },
   data() {
     // 年代別陽性患者数

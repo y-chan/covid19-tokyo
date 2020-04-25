@@ -1,5 +1,12 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
+  <data-view
+    :title="title"
+    :title-id="titleId"
+    :date="date"
+    :url="url"
+    :source-text="sourceText"
+    :source-url="sourceUrl"
+  >
     <template v-slot:button>
       <ul :class="$style.GraphDesc">
         <i18n tag="li" path="（注）病床数は{data}の入院可能病床数">
@@ -112,6 +119,8 @@ type Props = {
   unit: string
   info: string
   url: string
+  sourceText: string
+  sourceUrl: string
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -157,6 +166,16 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: ''
     },
     url: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    sourceText: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    sourceUrl: {
       type: String,
       required: false,
       default: ''
