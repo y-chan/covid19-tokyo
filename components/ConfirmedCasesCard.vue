@@ -1,5 +1,11 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date">
+  <data-view
+    :title="title"
+    :title-id="titleId"
+    :date="date"
+    :source-text="sourceText"
+    :source-url="sourceUrl"
+  >
     <template v-slot:button>
       <p :class="$style.note">
         {{
@@ -46,6 +52,16 @@ export default Vue.extend({
       default: ''
     },
     url: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    sourceText: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    sourceUrl: {
       type: String,
       required: false,
       default: ''

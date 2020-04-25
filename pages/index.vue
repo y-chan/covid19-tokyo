@@ -7,7 +7,10 @@
     />
     <whats-new class="mb-4" :items="newsItems" />
     <v-row class="DataBlock">
-      <confirmed-cases-details-card />
+      <confirmed-cases-details-card
+        :source-url="'http://www.pref.nara.jp/'"
+        :source-text="'奈良県緊急版トップページ'"
+      />
       <!-- <v-col cols="12" md="6" class="DataCard">
         <svg-card
           title="検査陽性者の状況"
@@ -29,6 +32,8 @@
           :date="Data.patients.date"
           :unit="'人'"
           :url="'http://www.pref.nara.jp/'"
+          :source-url="'http://www.pref.nara.jp/1652.htm'"
+          :source-text="'奈良県疾病課最新情報'"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -40,6 +45,8 @@
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
           :url="'http://www.pref.nara.jp/'"
+          :source-url="'http://www.pref.nara.jp/1652.htm'"
+          :source-text="'奈良県疾病課最新情報'"
         />
       </v-col>
       <!--
@@ -76,7 +83,10 @@
         />
       </v-col>
       -->
-      <patients-and-sickbeds />
+      <patients-and-sickbeds
+        :source-url="'http://www.pref.nara.jp/'"
+        :source-text="'奈良県緊急版トップページ'"
+      />
     </v-row>
   </div>
 </template>
