@@ -419,5 +419,7 @@
   "リンク確認": "Cases with transmission route confirmed",
   "感染経路不明者（リンク不明者）": "Cases with transmission route unknown",
   "※報道提供における本日判明数での集計": "*Total number of the cases confirmed today based on the numbers for the press release",
-  "「{aboutWindow}」": "”{aboutWindow}”"
+  "「{aboutWindow}」": "”{aboutWindow}”",
+  "退院・解除済累計": "Accumulated number of people discharged from hospitals/home recuperation/special facilities.",
+  "退院・解除": "Discharged from hospitals/home recuperation/special facilities."
 }
