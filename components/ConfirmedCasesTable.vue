@@ -27,7 +27,7 @@
           <ul :class="$style.container">
             <li>
               <div :class="[$style.row, $style['is-gray']]">
-                <span v-text="$t('入院・入院調整中')" />
+                <span v-text="$t('入院')" />
                 <span :class="$style.value">{{ 入院中 }}{{ $t('人') }}</span>
               </div>
               <ul :class="$style.container">
@@ -38,6 +38,14 @@
                   </div>
                 </li>
               </ul>
+            </li>
+            <li>
+              <div :class="[$style.row, $style['is-gray']]">
+                <span v-text="$t('入院調整中')" />
+                <span :class="$style.value"
+                  >{{ 入院調整中 }}{{ $t('人') }}</span
+                >
+              </div>
             </li>
             <li>
               <div :class="[$style.row, $style['is-gray']]">
@@ -61,7 +69,7 @@
         </li>
         <li>
           <div :class="$style.row">
-            <span>{{ $t('陰性確認済（退院者累計数）') }}</span>
+            <span>{{ $t('退院・解除済累計') }}</span>
             <span :class="$style.value">{{ 退院 }}{{ $t('人') }}</span>
           </div>
         </li>
@@ -103,6 +111,10 @@ export default {
       required: true
     },
     現在陽性者数: {
+      type: Number,
+      required: true
+    },
+    入院調整中: {
       type: Number,
       required: true
     },

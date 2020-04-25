@@ -42,6 +42,7 @@ type ConfirmedCasesType = {
   死亡: number
   退院: number
   現在陽性者数: number
+  入院調整中: number
   自宅療養: number
   宿泊療養: number
 }
@@ -56,8 +57,16 @@ export default (data: DataType) => {
     死亡: data.children[0].children[2].value,
     退院: data.children[0].children[1].value,
     現在陽性者数: 0,
+    入院調整中: 0,
     自宅療養: 0,
     宿泊療養: 0
   }
+
+  formattedData['現在陽性者数'] =
+    formattedData['入院中'] +
+    formattedData['入院調整中'] +
+    formattedData['自宅療養'] +
+    formattedData['宿泊療養']
+
   return formattedData
 }
