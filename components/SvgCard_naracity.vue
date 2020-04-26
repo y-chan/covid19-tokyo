@@ -1,5 +1,12 @@
 <template>
-  <data-view class="SvgCard" :title="title" :title-id="titleId" :date="date">
+  <data-view
+    class="SvgCard"
+    :title="title"
+    :title-id="titleId"
+    :date="date"
+    :source-text="sourceText"
+    :source-url="sourceUrl"
+  >
     <template v-slot:button>
       <p class="Graph-Desc">
         （注）表の数字は奈良市が公表したデータ
@@ -38,6 +45,16 @@ export default {
     },
     date: {
       type: String,
+      default: ''
+    },
+    sourceText: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    sourceUrl: {
+      type: String,
+      required: false,
       default: ''
     }
   }

@@ -14,6 +14,10 @@
           title="検査陽性者の状況"
           :title-id="'details-of-confirmed-cases'"
           :date="Data.main_summary.date"
+          :source-url="
+            'https://www.city.nara.lg.jp/corona/opendata_covid19_naracity.xlsx'
+          "
+          :source-text="'奈良市オープンデータ'"
         >
           <confirmed-cases-table
             aria-label="検査陽性者の状況"
@@ -23,22 +27,30 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          title="陽性患者数"
+          title="陽性者数"
           :title-id="'number-of-confirmed-cases'"
           :chart-id="'time-bar-chart-patients'"
           :chart-data="patientsGraph"
           :date="Data.patients.date"
           :unit="'人'"
+          :source-url="
+            'https://www.city.nara.lg.jp/corona/opendata_covid19_naracity.xlsx'
+          "
+          :source-text="'奈良市オープンデータ'"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <data-table
-          :title="'陽性患者の属性'"
+          :title="'陽性者の属性'"
           :title-id="'attributes-of-confirmed-cases'"
           :chart-data="patientsTable"
           :chart-option="{}"
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
+          :source-url="
+            'https://www.city.nara.lg.jp/corona/opendata_covid19_naracity.xlsx'
+          "
+          :source-text="'奈良市オープンデータ'"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -49,6 +61,10 @@
           :chart-data="inspectionsGraph"
           :date="Data.inspections_summary.date"
           :unit="'件'"
+          :source-url="
+            'https://www.city.nara.lg.jp/corona/opendata_covid19_naracity.xlsx'
+          "
+          :source-text="'奈良市オープンデータ'"
         />
       </v-col>
       <!--
@@ -73,6 +89,10 @@
           :date="Data.querents.date"
           :unit="'件'"
           :url="''"
+          :source-url="
+            'https://www.city.nara.lg.jp/corona/opendata_covid19_naracity.xlsx'
+          "
+          :source-text="'奈良市オープンデータ'"
         />
       </v-col>
     </v-row>

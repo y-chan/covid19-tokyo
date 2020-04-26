@@ -1,10 +1,16 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date">
+  <data-view
+    :title="title"
+    :title-id="titleId"
+    :date="date"
+    :source-text="sourceText"
+    :source-url="sourceUrl"
+  >
     <template v-slot:button>
       <p :class="$style.note">
         {{
           $t(
-            '（注）奈良県発表資料と同じく陽性者数に県外のクルーズ船乗客を含んでいます'
+            '（注）奈良県報道発表資料に基づく数字で、クルーズ船乗客を含みません'
           )
         }}
       </p>
@@ -46,6 +52,16 @@ export default Vue.extend({
       default: ''
     },
     url: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    sourceText: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    sourceUrl: {
       type: String,
       required: false,
       default: ''
