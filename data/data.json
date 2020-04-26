@@ -16742,7 +16742,7 @@
             }
         ]
     },
-    "lastUpdate": "2020/04/26 20:01",
+    "lastUpdate": "2020/04/26 21:01",
     "main_summary": {
         "attr": "検査実施人数",
         "value": 13667,
@@ -16753,7 +16753,7 @@
                 "children": [
                     {
                         "attr": "入院／入院調整中",
-                        "value": 583,
+                        "value": 450,
                         "children": [
                             {
                                 "attr": "軽症・中等症",
