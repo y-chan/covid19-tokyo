@@ -40,6 +40,18 @@ MAIN_SUMMARY_INIT = {
                 {
                     "attr": "死亡",
                     "value": 0
+                },
+                {
+                    "attr": "自宅療養",
+                    "value": 0
+                },
+                {
+                    "attr": "宿泊療養",
+                    "value": 0
+                },
+                {
+                    "attr": "療養等調整中",
+                    "value": 0
                 }
             ]
         }
