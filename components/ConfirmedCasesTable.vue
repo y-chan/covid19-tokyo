@@ -59,6 +59,14 @@
                 <span :class="$style.value">{{ 宿泊療養 }}{{ $t('人') }}</span>
               </div>
             </li>
+            <li>
+              <div :class="[$style.row, $style['is-gray']]">
+                <span>{{ $t('療養等調整中') }}</span>
+                <span :class="$style.value"
+                  >{{ 療養等調整中 }}{{ $t('人') }}</span
+                >
+              </div>
+            </li>
           </ul>
         </li>
         <li>
@@ -123,6 +131,10 @@ export default {
       required: true
     },
     宿泊療養: {
+      type: Number,
+      required: true
+    },
+    療養等調整中: {
       type: Number,
       required: true
     }
