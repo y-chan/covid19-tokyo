@@ -52,10 +52,6 @@ MAIN_SUMMARY_INIT = {
                 {
                     "attr": "療養等調整中",
                     "value": 0
-                },
-                {
-                    "attr": "入院調整中",
-                    "value": 0
                 }
             ]
         }
@@ -69,7 +65,22 @@ def excel_date(num) -> datetime:
 
 def get_xlsx(url: str, filename: str) -> openpyxl.workbook.workbook.Workbook:
     filename = "./data/" + filename
+    failed_count = 0
+    status_code = 404
+    while not status_code == 200:
+        try:
+            res = requests.get(url, stream=True)
+            status_code = res.status_code
+        except Exception:
+            if failed_count >= 5:
+                raise Exception(f"Failed get xlsx file from \"{url}\"!")
+            failed_count += 1
+            time.sleep(5)
+    with open(filename, 'wb') as f:
+        res.raw.decode_content = True
+        shutil.copyfileobj(res.raw, f)
     return openpyxl.load_workbook(filename)
+
 
 def dumps_json(file_name: str, json_data: Dict) -> None:
     with codecs.open("./data/" + file_name, "w", "utf-8") as f:
