@@ -40,11 +40,12 @@
           :chart-option="{}"
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
+          :unit="$t('人')"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          :title="$t('陰性確認済（退院者累計）')"
+          :title="$t('退院・解除済累計')"
           :title-id="'number-of-treated'"
           :chart-id="'time-bar-chart-inspections'"
           :chart-data="treatedGraph"
@@ -61,6 +62,18 @@
           :chart-data="inspectionsGraph"
           :date="Data.inspections_summary.date"
           :unit="$t('件.tested')"
+        />
+      </v-col>
+      <v-col cols="12" md="6" class="DataCard">
+        <time-stacked-bar-chart2
+          :title="$t('感染経路不明者（リンク不明者）')"
+          :title-id="'number-of-transmission-route'"
+          :chart-id="'time-stacked-bar-chart2-transmission-route'"
+          :chart-data="transmissionRouteGraph"
+          :date="Data.transmission_route_summary.date"
+          :items="transmissionRouteItems"
+          :labels="transmissionRouteLabels"
+          :unit="$t('人')"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -93,6 +106,7 @@
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
+import TimeStackedBarChart2 from '@/components/TimeStackedBarChart2.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
@@ -113,7 +127,8 @@ export default {
     DataTable,
     SvgCard,
     ConfirmedCasesTable,
-    TimeStackedBarChart
+    TimeStackedBarChart,
+    TimeStackedBarChart2
   },
   data() {
     // 感染者数グラフ
@@ -124,6 +139,16 @@ export default {
     const inspectionsGraph = formatGraph(Data.inspections_summary.data)
     // 検査陽性者の状況
     const confirmedCases = formatConfirmedCases(Data.main_summary)
+    // 感染経路不明者
+    const transmissionRouteGraph = [
+      Data.transmission_route_summary.data['感染経路不明者'],
+      Data.transmission_route_summary.data['感染経路明確者']
+    ]
+    const transmissionRouteItems = [
+      this.$t('リンク不明'),
+      this.$t('リンク確認')
+    ]
+    const transmissionRouteLabels = Data.transmission_route_summary.labels
     // 府民向け相談窓口相談件数
     const contactsGraph = formatGraph(Data.contacts1_summary.data)
     // 新型コロナ受診相談センターへの相談件数
@@ -160,12 +185,12 @@ export default {
     for (const row of patientsTable.datasets) {
       row['居住地'] = this.$t(row['居住地'])
       row['性別'] = this.$t(row['性別'])
-      row['退院'] = this.$t(row['退院'])
+      row['退院・解除'] = this.$t(row['退院・解除'])
 
       if (otherAges.includes(row['年代'])) {
         row['年代'] = this.$t(row['年代'])
       } else {
-        const age = row['年代'].substring(0, 2)
+        const age = row['年代'].slice(0, -1)
         row['年代'] = this.$t('{age}代', { age })
       }
     }
@@ -176,6 +201,9 @@ export default {
       patientsGraph,
       inspectionsGraph,
       confirmedCases,
+      transmissionRouteGraph,
+      transmissionRouteItems,
+      transmissionRouteLabels,
       contactsGraph,
       contacts2Graph,
       contacts2Items,
