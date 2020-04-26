@@ -8,8 +8,8 @@
     <whats-new class="mb-4" :items="newsItems" />
     <v-row class="DataBlock">
       <confirmed-cases-details-card
-        :source-url="'http://www.pref.nara.jp/'"
-        :source-text="'奈良県緊急版トップページ'"
+        :source-url="'http://www.pref.nara.jp/1652.htm'"
+        :source-text="'奈良県の公開情報を利用'"
       />
       <!-- <v-col cols="12" md="6" class="DataCard">
         <svg-card
@@ -29,11 +29,11 @@
           :title-id="'number-of-confirmed-cases'"
           :chart-id="'time-bar-chart-patients'"
           :chart-data="patientsGraph"
-          :date="Data.patients.date"
+          :date="Data.patients_summary.date"
           :unit="'人'"
           :url="'http://www.pref.nara.jp/'"
           :source-url="'http://www.pref.nara.jp/1652.htm'"
-          :source-text="'奈良県疾病課最新情報'"
+          :source-text="'奈良県の公開情報を利用'"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -46,7 +46,7 @@
           :info="sumInfoOfPatients"
           :url="'http://www.pref.nara.jp/'"
           :source-url="'http://www.pref.nara.jp/1652.htm'"
-          :source-text="'奈良県疾病課最新情報'"
+          :source-text="'奈良県の公開情報を利用'"
         />
       </v-col>
       <!--
@@ -85,7 +85,7 @@
       -->
       <patients-and-sickbeds
         :source-url="'http://www.pref.nara.jp/'"
-        :source-text="'奈良県緊急版トップページ'"
+        :source-text="'奈良県の公開情報を利用'"
       />
     </v-row>
   </div>
