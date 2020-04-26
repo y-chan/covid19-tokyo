@@ -2,7 +2,20 @@
   <ul
     :class="$style.container"
     :aria-label="
-      ariaLabel(検査実施人数, 陽性物数, 入院中, 軽症中等症, 重症, 死亡, 退院)
+      ariaLabel(
+        検査実施人数,
+        陽性物数,
+        入院中,
+        軽症中等症,
+        重症,
+        死亡,
+        退院,
+        現在陽性者数,
+        入院調整中,
+        自宅療養,
+        宿泊療養,
+        療養等調整中
+      )
     "
   >
     <li>
@@ -148,10 +161,15 @@ export default {
       mild,
       critically,
       deceased,
-      discharged
+      discharged,
+      currentlyPositive,
+      hospitalizeAdjust,
+      recuperatingHome,
+      recuperatingLodging,
+      recuperatingAdjust
     ) {
       return this.$t(
-        '検査陽性者の状況: 検査実施人数は{inspected}人、うち累積の陽性者数は{positive}人です。入院中は{hospitalized}人で、うち軽症・中等症は{mild}人、また重症は{critically}人です。さらに死亡は{deceased}人、退院は{discharged}人です。',
+        '検査陽性者の状況: 検査実施人数は{inspected}人、うち累積の陽性者数は{positive}人で、現在陽性者数は{currentlyPositive}人です。入院中は{hospitalized}人で、重症は{critically}人です、また入院調整中は{hospitalizeAdjust}人です。自宅療養は{recuperatingHome}人、宿泊療養は{recuperatingLodging}人、また療養等調整中は{recuperatingAdjust}人です。さらに死亡は{deceased}人、退院・解除済累計は{discharged}人です。',
         {
           inspected,
           positive,
@@ -159,7 +177,12 @@ export default {
           mild,
           critically,
           deceased,
-          discharged
+          discharged,
+          currentlyPositive,
+          hospitalizeAdjust,
+          recuperatingHome,
+          recuperatingLodging,
+          recuperatingAdjust
         }
       )
     }
