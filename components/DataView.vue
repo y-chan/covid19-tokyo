@@ -18,18 +18,26 @@
       <slot />
     </v-card-text>
     <v-footer class="DataView-Footer">
-      <a
-        v-if="sourceUrl && sourceText"
-        :href="sourceUrl"
-        class="OpenDataLink"
-        target="_blank"
-        rel="noopener"
-      >
-        {{ sourceText }}
-        <v-icon size="12">
-          mdi-open-in-new
-        </v-icon>
-      </a>
+      <div class="DataView-Footer-Note">
+        <span v-if="note">
+          <v-icon size="16">
+            mdi-information
+          </v-icon>
+          {{ note }}
+        </span>
+        <a
+          v-if="sourceUrl && sourceText"
+          :href="sourceUrl"
+          class="OpenDataLink"
+          target="_blank"
+          rel="noopener"
+        >
+          {{ sourceText }}
+          <v-icon size="12">
+            mdi-open-in-new
+          </v-icon>
+        </a>
+      </div>
       <time :datetime="formattedDate">{{ date }} 更新</time>
     </v-footer>
   </v-card>
@@ -47,6 +55,7 @@ export default class DataView extends Vue {
   @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
   @Prop() private sourceText!: string
   @Prop() private sourceUrl!: string
+  @Prop() private note!: string
 
   formattedDate: string = convertDatetimeToISO8601Format(this.date)
 }
@@ -124,6 +133,10 @@ export default class DataView extends Vue {
       &:hover {
         text-decoration: underline;
       }
+    }
+    &-Note {
+      display: flex;
+      flex-direction: column;
     }
   }
 }
