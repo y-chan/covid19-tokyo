@@ -204,7 +204,7 @@ class DataJson:
         self._main_summary_json["value"] = all_inspections
         self._main_summary_json["children"][0]["value"] = all_patients
         self._main_summary_json["children"][0]["children"][0]["value"] = (
-            self.main_summary_sheet.cell(row=5, column=2).value + self.main_summary_sheet.cell(row=6, column=2).value
+            self.main_summary_sheet.cell(row=5, column=2).value
         )
         self._main_summary_json["children"][0]["children"][0]["children"][0]["value"] = (
             self.main_summary_sheet.cell(row=13, column=2).value +
