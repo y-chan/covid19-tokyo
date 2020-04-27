@@ -34,6 +34,7 @@
           :url="'http://www.pref.nara.jp/'"
           :source-url="'http://www.pref.nara.jp/1652.htm'"
           :source-text="'奈良県の公開情報を利用'"
+          :note="'報道発表の日付と一致しないデータがあります'"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">

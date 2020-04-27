@@ -5,6 +5,7 @@
     :title-id="titleId"
     :source-text="sourceText"
     :source-url="sourceUrl"
+    :note="note"
   >
     <template v-slot:button>
       <data-selector v-model="dataKind" />
@@ -91,6 +92,11 @@ export default {
       default: ''
     },
     sourceUrl: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    note: {
       type: String,
       required: false,
       default: ''
