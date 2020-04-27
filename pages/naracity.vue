@@ -14,10 +14,8 @@
           title="検査陽性者の状況"
           :title-id="'details-of-confirmed-cases'"
           :date="Data.main_summary.date"
-          :source-url="
-            'https://www.city.nara.lg.jp/corona/opendata_covid19_naracity.xlsx'
-          "
-          :source-text="'奈良市オープンデータ'"
+          :source-url="'https://www.city.nara.lg.jp/site/coronavirus/'"
+          :source-text="'奈良市提供のデータを利用'"
         >
           <confirmed-cases-table
             aria-label="検査陽性者の状況"
@@ -36,7 +34,8 @@
           :source-url="
             'https://www.city.nara.lg.jp/corona/opendata_covid19_naracity.xlsx'
           "
-          :source-text="'奈良市オープンデータ'"
+          :source-text="'奈良市提供のデータを利用'"
+          :note="'報道発表の日付と一致しないデータがあります'"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -50,7 +49,7 @@
           :source-url="
             'https://www.city.nara.lg.jp/corona/opendata_covid19_naracity.xlsx'
           "
-          :source-text="'奈良市オープンデータ'"
+          :source-text="'奈良市提供のデータを利用'"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -64,7 +63,7 @@
           :source-url="
             'https://www.city.nara.lg.jp/corona/opendata_covid19_naracity.xlsx'
           "
-          :source-text="'奈良市オープンデータ'"
+          :source-text="'奈良市提供のデータを利用'"
         />
       </v-col>
       <!--
@@ -92,7 +91,7 @@
           :source-url="
             'https://www.city.nara.lg.jp/corona/opendata_covid19_naracity.xlsx'
           "
-          :source-text="'奈良市オープンデータ'"
+          :source-text="'奈良市提供のデータを利用'"
         />
       </v-col>
     </v-row>
