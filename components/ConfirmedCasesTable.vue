@@ -29,7 +29,7 @@
           <div :class="$style.pillar">
             <div :class="$style.content">
               <!-- eslint-disable vue/no-v-html-->
-              <span v-html="$t('症状の<br />ある方')" />
+              <span v-html="$t('入院中')" />
               <!-- eslint-enable vue/no-v-html-->
               <span>
                 <strong>{{ 症状のある方 }}</strong>
@@ -42,7 +42,7 @@
           <div :class="$style.pillar">
             <div :class="$style.content">
               <!-- eslint-disable vue/no-v-html-->
-              <span v-html="$t('症状の<br />ない方')" />
+              <span v-html="$t('宿泊療養')" />
               <!-- eslint-enable vue/no-v-html-->
               <span>
                 <strong>{{ 症状のない方 }}</strong>
