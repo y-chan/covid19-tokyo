@@ -3,7 +3,7 @@ name: Auto-i18n Generator
 on:
   push:
     branches:
-      - development
+      - test
 
 jobs:
   i18n-builder:
