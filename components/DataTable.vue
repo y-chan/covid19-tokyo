@@ -139,7 +139,7 @@ export default {
         } else if (aDate[0] < bDate[0]) {
           comparison = -1
         }
-        return isDescending[0] ? comparison * -1 : comparison
+        return isDescending ? comparison * -1 : comparison
       })
     },
     createSortAgeData(items, index, isDescending) {
