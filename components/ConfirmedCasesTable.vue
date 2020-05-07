@@ -242,8 +242,8 @@ $default-boxdiff: 35px;
   &.tested {
     display: flex;
     flex: 0 0 auto;
-    // [6列] 1/6セル
-    width: calc((100% - #{$default-bdw} * 3) / 6);
+    // [7列] 1/7セル
+    width: calc((100% - #{$default-bdw} * 3) / 7);
     color: $gray-1;
   }
 
@@ -252,13 +252,13 @@ $default-boxdiff: 35px;
     width: 100%;
 
     > .pillar {
-      // [3列] 1/3
-      width: calc((100% + #{$default-bdw} * 2) / 3 - #{$default-bdw} * 3);
+      // [4列] 1/4
+      width: calc((100% + #{$default-bdw} * 2) / 4 - #{$default-bdw} * 4);
     }
 
     > .group {
-      // [3列] 2/3
-      width: calc((100% + #{$default-bdw} * 2) / 3 * 2 + #{$default-bdw});
+      // [4列] 3/4
+      width: calc((100% + #{$default-bdw} * 2) / 4 * 3 + #{$default-bdw});
     }
   }
 
@@ -282,8 +282,8 @@ $default-boxdiff: 35px;
   &.minor,
   &.severe {
     margin-left: $default-bdw;
-    // [2列] 1/2
-    width: calc(100% / 2 - #{$default-bdw});
+    // [3列] 1/3
+    width: calc(100% / 3 - #{$default-bdw});
   }
 
   &.deceased,
