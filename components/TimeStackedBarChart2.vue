@@ -171,8 +171,8 @@ export default {
           displayColors: false,
           callbacks: {
             label: tooltipItem => {
-              const tooltipStr = (() => {
-                return this.dataKind === 'transition'
+              const labelText =
+                this.dataKind === 'transition'
                   ? `${sumArray[tooltipItem.index]}${unit}（${this.$t(
                       'リンク不明'
                     )}: ${data[0][tooltipItem.index]}/${this.$t(
@@ -183,11 +183,11 @@ export default {
                     )}: ${cumulativeData[0][tooltipItem.index]}/${this.$t(
                       'リンク確認'
                     )}: ${cumulativeData[1][tooltipItem.index]}）`
-              })()
+
               // 長い場合 スラッシュで改行
-              return tooltipStr.length < 50
-                ? tooltipStr
-                : tooltipStr.split(/(?<=\/)/g)
+              return labelText.length < 50
+                ? labelText
+                : labelText.split(/(?<=\/)/g)
             }
           }
         },
