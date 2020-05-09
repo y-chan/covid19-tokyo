@@ -171,21 +171,31 @@ export default {
           displayColors: false,
           callbacks: {
             label: tooltipItem => {
-              const labelText =
-                this.dataKind === 'transition'
-                  ? `${sumArray[tooltipItem.index]}${unit}（${this.$t(
-                      'リンク不明'
-                    )}: ${data[0][tooltipItem.index]}/${this.$t(
-                      'リンク確認'
-                    )}: ${data[1][tooltipItem.index]}）`
-                  : `${
-                      cumulativeSumArray[tooltipItem.index]
-                    }${unit}（（${this.$t('リンク不明')}: ${
-                      cumulativeData[0][tooltipItem.index]
-                    }/${this.$t('リンク確認')}: ${
-                      cumulativeData[1][tooltipItem.index]
-                    }）`
-              return labelText
+              return (() => {
+                if (this.dataKind === 'transition') {
+                  const tooltipStr = `${
+                    sumArray[tooltipItem.index]
+                  }${unit}（${this.$t('リンク不明')}: ${
+                    data[0][tooltipItem.index]
+                  }/${this.$t('リンク確認')}: ${data[1][tooltipItem.index]}）`
+                  // 長い場合 スラッシュで改行
+                  return tooltipStr.length < 50
+                    ? tooltipStr
+                    : tooltipStr.split(/(?<=\/)/g)
+                } else {
+                  const tooltipStr = `${
+                    cumulativeSumArray[tooltipItem.index]
+                  }${unit}（${this.$t('リンク不明')}: ${
+                    cumulativeData[0][tooltipItem.index]
+                  }/${this.$t('リンク確認')}: ${
+                    cumulativeData[1][tooltipItem.index]
+                  }）`
+                  // 長い場合 スラッシュで改行
+                  return tooltipStr.length < 50
+                    ? tooltipStr
+                    : tooltipStr.split(/(?<=\/)/g)
+                }
+              })()
             }
           }
         },
