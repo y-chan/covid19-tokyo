@@ -132,33 +132,23 @@ export default {
           displayColors: false,
           callbacks: {
             label: tooltipItem => {
-              return (() => {
-                if (this.dataKind === 'transition') {
-                  const tooltipStr = `${
-                    sumArray[tooltipItem.index]
-                  }${unit}（${this.$t('府管轄保健所')}: ${
-                    data[0][tooltipItem.index]
-                  }/${this.$t('政令中核市保健所')}: ${
-                    data[1][tooltipItem.index]
-                  }）`
-                  // 長い場合 スラッシュで改行
-                  return tooltipStr.length < 50
-                    ? tooltipStr
-                    : tooltipStr.split(/(?<=\/)/g)
-                } else {
-                  const tooltipStr = `${
-                    cumulativeSumArray[tooltipItem.index]
-                  }${unit}（${this.$t('府管轄保健所')}: ${
-                    cumulativeData[0][tooltipItem.index]
-                  }/${this.$t('政令中核市保健所')}: ${
-                    cumulativeData[1][tooltipItem.index]
-                  }）`
-                  // 長い場合 スラッシュで改行
-                  return tooltipStr.length < 50
-                    ? tooltipStr
-                    : tooltipStr.split(/(?<=\/)/g)
-                }
+              const tooltipStr = (() => {
+                return this.dataKind === 'transition'
+                  ? `${sumArray[tooltipItem.index]}${unit}（${this.$t(
+                      '府管轄保健所'
+                    )}: ${data[0][tooltipItem.index]}/${this.$t(
+                      '政令中核市保健所'
+                    )}: ${data[1][tooltipItem.index]}）`
+                  : `${cumulativeSumArray[tooltipItem.index]}${unit}（${this.$t(
+                      '府管轄保健所'
+                    )}: ${cumulativeData[0][tooltipItem.index]}/${this.$t(
+                      '政令中核市保健所'
+                    )}: ${cumulativeData[1][tooltipItem.index]}）`
               })()
+              // 長い場合 スラッシュで改行
+              return tooltipStr.length < 50
+                ? tooltipStr
+                : tooltipStr.split(/(?<=\/)/g)
             }
           }
         },
