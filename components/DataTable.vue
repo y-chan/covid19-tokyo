@@ -101,7 +101,10 @@
   color: #808080;
 }
 .v-menu__content {
-  min-width: 59px;
+  width: 60px;
+  .v-list-item {
+    padding: 0 8px;
+  }
 }
 </style>
 
