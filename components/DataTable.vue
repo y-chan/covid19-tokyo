@@ -100,6 +100,9 @@
   font-size: 12px;
   color: #808080;
 }
+.v-menu__content {
+  min-width: 59px;
+}
 </style>
 
 <script>
