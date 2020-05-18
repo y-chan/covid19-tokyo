@@ -145,7 +145,9 @@ export default {
                       '政令中核市保健所'
                     )}: ${cumulativeData[1][tooltipItem.index]}）`
               // 長い場合 スラッシュで改行
-              return labelText
+              return labelText.length < 50
+                ? labelText
+                : labelText.split(/(?=\/)/g)
             }
           }
         },
