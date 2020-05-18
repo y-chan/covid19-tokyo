@@ -185,9 +185,7 @@ export default {
                     )}: ${cumulativeData[1][tooltipItem.index]}）`
 
               // 長い場合 スラッシュで改行
-              return labelText.length < 50
-                ? labelText
-                : labelText.split(/(?=\/)/g)
+              return labelText
             }
           }
         },
