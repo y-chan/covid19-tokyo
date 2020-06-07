@@ -32,21 +32,25 @@
         <span>{{ $t('陽性者数（累積）') }}</span>
         <span :class="$style.value">{{ 陽性物数 }}{{ $t('人') }}</span>
       </div>
-      <ul :class="$style.container">
+      <ul
+        :class="[$style.container, $style.subContainer, $style['is-positive']]"
+      >
         <li>
-          <div :class="[$style.row, $style['is-positive']]">
+          <div :class="$style.row">
             <span>{{ $t('現在陽性者数') }}</span>
             <span :class="$style.value">{{ 現在陽性者数 }}{{ $t('人') }}</span>
           </div>
-          <ul :class="$style.container">
+          <ul
+            :class="[$style.container, $style.subContainer, $style['is-gray']]"
+          >
             <li>
-              <div :class="[$style.row, $style['is-gray']]">
+              <div :class="[$style.row]">
                 <span v-text="$t('入院')" />
                 <span :class="$style.value">{{ 入院中 }}{{ $t('人') }}</span>
               </div>
-              <ul :class="$style.container">
+              <ul :class="[$style.container, $style.subContainer]">
                 <li>
-                  <div :class="[$style.row, $style['is-gray']]">
+                  <div :class="$style.row">
                     <span>{{ $t('重症') }}</span>
                     <span :class="$style.value">{{ 重症 }}{{ $t('人') }}</span>
                   </div>
@@ -196,37 +200,65 @@ export default {
 </script>
 
 <style lang="scss" module>
-$rowSidePadding: 1.5em;
-$rowNestPadding: 2em;
+$borderWidth: 2px;
+$itemGap: 0.25em;
+
+@mixin boxShadow($color) {
+  box-shadow: $color 0px 2px 0px 0px inset;
+}
 
 .container {
-  &,
-  ul {
-    padding-left: 0 !important;
-  }
+  padding: 0 !important;
 
   &,
   li {
     list-style: none;
   }
 
-  > * + *,
-  .container {
-    margin-top: 4px;
+  > li + li {
+    margin-top: $itemGap;
+  }
+}
+
+.subContainer {
+  padding: $itemGap 0 0 2.25em !important;
+  position: relative;
+
+  &::before {
+    content: '';
+
+    width: 2em;
+
+    border: solid $green-1;
+    border-width: 0 $borderWidth $borderWidth;
+
+    @include boxShadow(#fff);
+
+    position: absolute;
+    top: -2px;
+    left: 0;
+    bottom: 0;
   }
 
-  // ネスト用のスタイルを吐き出す
-  @for $i from 1 to 4 {
-    $selector: '.container';
-
-    @for $j from 1 to $i {
-      $selector: $selector + ' .container';
+  &.is-positive {
+    .row,
+    ::before {
+      background: lighten($green-1, 50%);
     }
 
-    $selector: $selector + ' .row';
+    ::before {
+      @include boxShadow(lighten($green-1, 50%));
+    }
+  }
 
-    #{$selector} {
-      padding-left: $rowNestPadding * $i + $rowSidePadding;
+  &.is-gray {
+    .row,
+    ::before {
+      background: lighten(#333, 50%);
+    }
+
+    ::before {
+      @include boxShadow(lighten(#333, 50%));
     }
   }
 }
@@ -236,7 +268,7 @@ $rowNestPadding: 2em;
   align-items: center;
   justify-content: space-between;
 
-  padding: 0.25em $rowSidePadding;
+  padding: 0.5em;
 
   font-weight: bold;
 
@@ -244,21 +276,8 @@ $rowNestPadding: 2em;
 
   color: $green-1;
 
-  &.is-black {
-    border-color: #333;
-    color: #4d4d4d;
-  }
-
   &.is-deceased {
-    background: rgba(#333, 30%);
-  }
-
-  &.is-positive {
-    background: rgba($green-1, 20%);
-  }
-
-  &.is-gray {
-    background: rgba(#333, 10%);
+    background: rgba(#333, 30%) !important;
   }
 }
 
