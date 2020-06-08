@@ -28,7 +28,7 @@
       </div>
     </li>
     <li>
-      <div :class="$style.row">
+      <div :class="[$style.row, $style['is-positive']]">
         <span>{{ $t('陽性者数（累積）') }}</span>
         <span :class="$style.value">{{ 陽性物数 }}{{ $t('人') }}</span>
       </div>
@@ -36,7 +36,7 @@
         :class="[$style.container, $style.subContainer, $style['is-positive']]"
       >
         <li>
-          <div :class="$style.row">
+          <div :class="[$style.row, $style['is-gray']]">
             <span>{{ $t('現在陽性者数') }}</span>
             <span :class="$style.value">{{ 現在陽性者数 }}{{ $t('人') }}</span>
           </div>
@@ -44,13 +44,19 @@
             :class="[$style.container, $style.subContainer, $style['is-gray']]"
           >
             <li>
-              <div :class="[$style.row]">
+              <div :class="[$style.row, $style['is-gray']]">
                 <span v-text="$t('入院')" />
                 <span :class="$style.value">{{ 入院中 }}{{ $t('人') }}</span>
               </div>
-              <ul :class="[$style.container, $style.subContainer]">
+              <ul
+                :class="[
+                  $style.container,
+                  $style.subContainer,
+                  $style['is-gray']
+                ]"
+              >
                 <li>
-                  <div :class="$style.row">
+                  <div :class="[$style.row, $style['is-gray']]">
                     <span>{{ $t('重症') }}</span>
                     <span :class="$style.value">{{ 重症 }}{{ $t('人') }}</span>
                   </div>
@@ -94,7 +100,7 @@
           </div>
         </li>
         <li>
-          <div :class="$style.row">
+          <div :class="[$style.row, $style['is-white']]">
             <span>{{ $t('退院・解除済累計') }}</span>
             <span :class="$style.value">{{ 退院 }}{{ $t('人') }}</span>
           </div>
@@ -207,8 +213,8 @@ $itemGap: 0.25em;
   box-shadow: $color 0px 2px 0px 0px inset;
 }
 
-.container {
-  padding: 0 !important;
+ul.container {
+  padding: 0;
 
   &,
   li {
@@ -220,8 +226,8 @@ $itemGap: 0.25em;
   }
 }
 
-.subContainer {
-  padding: $itemGap 0 0 2.25em !important;
+ul.subContainer {
+  padding: $itemGap 0 0 2.25em;
   position: relative;
 
   &::before {
@@ -240,26 +246,14 @@ $itemGap: 0.25em;
     bottom: 0;
   }
 
-  &.is-positive {
-    .row,
-    ::before {
-      background: lighten($green-1, 50%);
-    }
-
-    ::before {
-      @include boxShadow(lighten($green-1, 50%));
-    }
+  &.is-positive::before {
+    background: lighten($green-1, 50%);
+    @include boxShadow(lighten($green-1, 50%));
   }
 
-  &.is-gray {
-    .row,
-    ::before {
-      background: lighten(#333, 50%);
-    }
-
-    ::before {
-      @include boxShadow(lighten(#333, 50%));
-    }
+  &.is-gray::before {
+    background: #e6e6e6;
+    @include boxShadow(#e6e6e6);
   }
 }
 
@@ -268,7 +262,7 @@ $itemGap: 0.25em;
   align-items: center;
   justify-content: space-between;
 
-  padding: 0.5em;
+  padding: 0.5em 0.75em;
 
   font-weight: bold;
 
@@ -276,8 +270,20 @@ $itemGap: 0.25em;
 
   color: $green-1;
 
+  &.is-positive {
+    background: lighten($green-1, 50%);
+  }
+
   &.is-deceased {
-    background: rgba(#333, 30%) !important;
+    background: #ccc;
+  }
+
+  &.is-white {
+    background: #fff;
+  }
+
+  &.is-gray {
+    background: #e6e6e6;
   }
 }
 
