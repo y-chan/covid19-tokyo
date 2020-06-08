@@ -20,7 +20,7 @@
     "
   >
     <li>
-      <div :class="[$style.row, $style['is-black']]">
+      <div :class="[$style.row, $style['is-conducted']]">
         <span v-text="$t('検査実施件数')">)"></span>
         <span :class="$style.value"
           >{{ 検査実施人数 }}{{ $t('件.tested') }}</span
@@ -33,15 +33,23 @@
         <span :class="$style.value">{{ 陽性物数 }}{{ $t('人') }}</span>
       </div>
       <ul
-        :class="[$style.container, $style.subContainer, $style['is-positive']]"
+        :class="[
+          $style.container,
+          $style['sub-container'],
+          $style['is-positive']
+        ]"
       >
         <li>
-          <div :class="[$style.row, $style['is-gray']]">
+          <div :class="[$style.row, $style['is-current-positive']]">
             <span>{{ $t('現在陽性者数') }}</span>
             <span :class="$style.value">{{ 現在陽性者数 }}{{ $t('人') }}</span>
           </div>
           <ul
-            :class="[$style.container, $style.subContainer, $style['is-gray']]"
+            :class="[
+              $style.container,
+              $style['sub-container'],
+              $style['is-current-positive']
+            ]"
           >
             <li>
               <div :class="[$style.row, $style['is-gray']]">
@@ -51,7 +59,7 @@
               <ul
                 :class="[
                   $style.container,
-                  $style.subContainer,
+                  $style['sub-container'],
                   $style['is-gray']
                 ]"
               >
@@ -100,7 +108,7 @@
           </div>
         </li>
         <li>
-          <div :class="[$style.row, $style['is-white']]">
+          <div :class="$style.row">
             <span>{{ $t('退院・解除済累計') }}</span>
             <span :class="$style.value">{{ 退院 }}{{ $t('人') }}</span>
           </div>
@@ -216,6 +224,8 @@ $itemGap: 0.25em;
 ul.container {
   padding: 0;
 
+  letter-spacing: 0.05em;
+
   &,
   li {
     list-style: none;
@@ -226,7 +236,7 @@ ul.container {
   }
 }
 
-ul.subContainer {
+ul.sub-container {
   padding: $itemGap 0 0 2.25em;
   position: relative;
 
@@ -251,9 +261,16 @@ ul.subContainer {
     @include boxShadow(lighten($green-1, 50%));
   }
 
-  &.is-gray::before {
-    background: #e6e6e6;
-    @include boxShadow(#e6e6e6);
+  &.is-current-positive {
+    &::before,
+    .sub-container::before {
+      background: #e6e6e6;
+      @include boxShadow(#e6e6e6);
+    }
+
+    .row {
+      background: #e6e6e6;
+    }
   }
 }
 
@@ -278,12 +295,13 @@ ul.subContainer {
     background: #ccc;
   }
 
-  &.is-white {
-    background: #fff;
+  &.is-current-positive {
+    background: #e6e6e6;
   }
 
-  &.is-gray {
-    background: #e6e6e6;
+  &.is-conducted {
+    border-color: #333;
+    color: #4d4d4d;
   }
 }
 
