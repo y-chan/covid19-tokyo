@@ -217,7 +217,13 @@ export default {
 $borderWidth: 2px;
 $itemGap: 0.25em;
 
-@mixin boxShadow($color) {
+$positiveColor: lighten($green-1, 50%);
+$currentPositiveColor: #e6e6e6;
+$deceasedColor: #ccc;
+$conductedColor: #333;
+
+// for .sub-container
+@mixin scBoxShadow($color) {
   box-shadow: $color 0px 2px 0px 0px inset;
 }
 
@@ -248,7 +254,7 @@ ul.sub-container {
     border: solid $green-1;
     border-width: 0 $borderWidth $borderWidth;
 
-    @include boxShadow(#fff);
+    @include scBoxShadow(#fff);
 
     position: absolute;
     top: -2px;
@@ -257,19 +263,19 @@ ul.sub-container {
   }
 
   &.is-positive::before {
-    background: lighten($green-1, 50%);
-    @include boxShadow(lighten($green-1, 50%));
+    background: $positiveColor;
+    @include scBoxShadow($positiveColor);
   }
 
   &.is-current-positive {
     &::before,
     .sub-container::before {
-      background: #e6e6e6;
-      @include boxShadow(#e6e6e6);
+      background: $currentPositiveColor;
+      @include scBoxShadow($currentPositiveColor);
     }
 
     .row {
-      background: #e6e6e6;
+      background: $currentPositiveColor;
     }
   }
 }
@@ -279,29 +285,29 @@ ul.sub-container {
   align-items: center;
   justify-content: space-between;
 
-  padding: 0.5em 0.75em;
+  padding: 0.5em 1em;
 
   font-weight: bold;
 
   border: solid 2px $green-1;
 
-  color: $green-1;
+  color: darken($green-1, 15%);
 
   &.is-positive {
-    background: lighten($green-1, 50%);
+    background: $positiveColor;
   }
 
   &.is-deceased {
-    background: #ccc;
+    background: $deceasedColor;
   }
 
   &.is-current-positive {
-    background: #e6e6e6;
+    background: $currentPositiveColor;
   }
 
   &.is-conducted {
-    border-color: #333;
-    color: #4d4d4d;
+    border-color: $conductedColor;
+    color: $conductedColor;
   }
 }
 
@@ -309,5 +315,7 @@ ul.sub-container {
   flex: none;
 
   margin-left: 1em;
+
+  letter-spacing: 0.075em;
 }
 </style>
