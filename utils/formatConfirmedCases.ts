@@ -43,6 +43,16 @@ type DataType = {
         {
           attr: '入院調整中'
           value: number
+          children: [
+            {
+              attr: '入院待機中'
+              value: number
+            },
+            {
+              attr: '入院もしくは療養方法の調整中'
+              value: number
+            }
+          ]
         },
         {
           attr: '府外健康観察'
@@ -66,6 +76,8 @@ type ConfirmedCasesType = {
   宿泊療養: number
   療養等調整中: number
   入院調整中: number
+  入院待機中: number
+  入院もしくは療養方法の調整中: number
   府外健康観察: number
 }
 
@@ -83,6 +95,8 @@ export default (data: DataType) => {
     宿泊療養: data.children[0].children[4].value,
     療養等調整中: data.children[0].children[5].value,
     入院調整中: data.children[0].children[6].value,
+    入院待機中: 0,
+    入院もしくは療養方法の調整中: 0,
     府外健康観察: data.children[0].children[7].value
   }
 
@@ -93,6 +107,9 @@ export default (data: DataType) => {
     formattedData['宿泊療養'] +
     formattedData['療養等調整中'] +
     formattedData['府外健康観察']
+
+  formattedData['入院待機中'] = formattedData['入院調整中']
+  formattedData['入院もしくは療養方法の調整中'] = formattedData['入院調整中']
 
   return formattedData
 }
