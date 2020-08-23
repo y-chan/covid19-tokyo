@@ -16,20 +16,9 @@
       }"
       class="cardTable"
     >
-      <template v-slot:body="{ items }">
-        <tbody>
-          <tr v-for="item in items" :key="item.text">
-            <th class="text-start">{{ item['公表日'] }}</th>
-            <td class="text-start">{{ item['居住地'] }}</td>
-            <td class="text-start">{{ item['年代'] }}</td>
-            <td class="text-start">{{ item['性別'] }}</td>
-            <td class="text-center">{{ item['退院'] }}</td>
-          </tr>
-        </tbody>
-      </template>
       <template slot="footer.page-text" slot-scope="props">
         {{
-          $t('{itemsLength} 項目中 {pageStart} - {pageStop} ', {
+          $t('{itemsLength} 項目中 {pageStart} - {pageStop}', {
             itemsLength: props.itemsLength,
             pageStart: props.pageStart,
             pageStop: props.pageStop
