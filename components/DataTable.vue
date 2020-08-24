@@ -100,6 +100,7 @@
   font-size: 12px;
   color: #808080;
 }
+// FIXME: スタイルの影響が全体に及んでいるので修正が必要
 .v-menu__content {
   width: 60px;
   .v-list-item {
