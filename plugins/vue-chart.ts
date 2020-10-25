@@ -2,7 +2,7 @@ import Vue, { PropType } from 'vue'
 import { ChartData, ChartOptions } from 'chart.js'
 import { Doughnut, Bar, mixins } from 'vue-chartjs'
 import { Plugin } from '@nuxt/types'
-
+import { useDayjsAdapter } from './chartjs-adapter-dayjs'
 import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
 
 type ChartVCData = { chartData: ChartData }
@@ -15,7 +15,8 @@ type ChartVCProps = { options: Object }
 const rgba0 = 'rgba(255,255,255,0)'
 const rgba1 = 'rgba(255,255,255,1)'
 
-const VueChartPlugin: Plugin = () => {
+const VueChartPlugin: Plugin = ({ app }) => {
+  useDayjsAdapter(app.i18n)
   const { reactiveProp } = mixins
 
   const generalChart = Vue.component<
