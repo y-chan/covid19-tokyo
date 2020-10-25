@@ -10,7 +10,7 @@ type ChartVCMethod = {
   renderChart(chartData: ChartData, options: ChartOptions): void
 }
 type ChartVCComputed = unknown
-type ChartVCProps = { options: Object }
+type ChartVCProps = { options: Object; displayLegends: boolean[] | null }
 
 const rgba0 = 'rgba(255,255,255,0)'
 const rgba1 = 'rgba(255,255,255,1)'
@@ -18,6 +18,20 @@ const rgba1 = 'rgba(255,255,255,1)'
 const VueChartPlugin: Plugin = ({ app }) => {
   useDayjsAdapter(app.i18n)
   const { reactiveProp } = mixins
+
+  const watchDisplayLegends = function(this: Vue, v?: boolean[] | null) {
+    if (v == null) {
+      return
+    }
+    if (v.length === 0) {
+      return
+    }
+    const chart: Chart = this.$data._chart
+    v.forEach((display, i) => {
+      chart.getDatasetMeta(i).hidden = !display
+    })
+    chart.update()
+  }
 
   const generalChart = Vue.component<
     ChartVCData,
@@ -27,9 +41,19 @@ const VueChartPlugin: Plugin = ({ app }) => {
   >('general-chart', {
     mixins: [reactiveProp],
     props: {
+      displayLegends: {
+        type: Array,
+        default: () => null
+      },
       options: {
         type: Object as PropType<ChartOptions>,
         default: () => {}
+      }
+    },
+    watch: {
+      displayLegends: watchDisplayLegends,
+      width() {
+        setTimeout(() => this.$data._chart.resize())
       }
     },
     mounted() {
