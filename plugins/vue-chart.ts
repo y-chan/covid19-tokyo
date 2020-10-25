@@ -3,6 +3,8 @@ import { ChartData, ChartOptions } from 'chart.js'
 import { Doughnut, Bar, mixins } from 'vue-chartjs'
 import { Plugin } from '@nuxt/types'
 
+import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
+
 type ChartVCData = { chartData: ChartData }
 type ChartVCMethod = {
   renderChart(chartData: ChartData, options: ChartOptions): void
@@ -16,37 +18,40 @@ const rgba1 = 'rgba(255,255,255,1)'
 const VueChartPlugin: Plugin = () => {
   const { reactiveProp } = mixins
 
-  Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
-    'doughnut-chart',
-    {
-      extends: Doughnut,
-      mixins: [reactiveProp],
-      props: {
-        options: {
-          type: Object as PropType<ChartOptions>,
-          default: () => {}
-        }
-      },
-      mounted(): void {
-        this.renderChart(this.chartData, this.options)
+  const generalChart = Vue.component<
+    ChartVCData,
+    ChartVCMethod,
+    ChartVCComputed,
+    ChartVCProps
+  >('general-chart', {
+    mixins: [reactiveProp],
+    props: {
+      options: {
+        type: Object as PropType<ChartOptions>,
+        default: () => {}
       }
+    },
+    mounted() {
+      setTimeout(() => this.renderChart(this.chartData, this.options))
+
+      // タブ変更時にグラフの`height`を再計算する
+      EventBus.$on(TOGGLE_EVENT, () => {
+        setTimeout(() => this.renderChart(this.chartData, this.options))
+      })
     }
-  )
+  })
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
     'bar',
     {
-      extends: Bar,
-      mixins: [reactiveProp],
-      props: {
-        options: {
-          type: Object,
-          default: () => {}
-        }
-      },
-      mounted(): void {
-        this.renderChart(this.chartData, this.options)
-      }
+      mixins: [reactiveProp, Bar, generalChart]
+    }
+  )
+
+  Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
+    'doughnut-chart',
+    {
+      mixins: [reactiveProp, Doughnut, generalChart]
     }
   )
 }
